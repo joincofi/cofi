@@ -83,17 +83,9 @@
         }
 
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .gradient-text {
@@ -193,32 +185,13 @@
             transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .stagger-children.visible>*:nth-child(1) {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.08s;
-        }
-
-        .stagger-children.visible>*:nth-child(2) {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.16s;
-        }
-
-        .stagger-children.visible>*:nth-child(3) {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.24s;
-        }
+        .stagger-children.visible>*:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.08s; }
+        .stagger-children.visible>*:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.16s; }
+        .stagger-children.visible>*:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.24s; }
 
         @keyframes infiniteScroll {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
         .scroll-container {
@@ -228,47 +201,17 @@
         }
 
         @keyframes spin-slow {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .animate-spin-custom {
             animation: spin-slow 15s linear infinite;
         }
 
-        /* New role animations */
-        @keyframes focus-pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(1.1);
-                opacity: 0.7;
-            }
-        }
-
-        .animate-focus {
-            animation: focus-pulse 3s ease-in-out infinite;
-            transform-origin: center;
-        }
-
         @keyframes gear-rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .animate-gear {
@@ -276,39 +219,17 @@
         }
 
         @keyframes layers-float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-4px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
         }
 
-        .animate-layers-1 {
-            animation: layers-float 4s ease-in-out infinite;
-        }
-
-        .animate-layers-2 {
-            animation: layers-float 4s ease-in-out infinite 1s;
-        }
-
-        .animate-layers-3 {
-            animation: layers-float 4s ease-in-out infinite 2s;
-        }
+        .animate-layers-1 { animation: layers-float 4s ease-in-out infinite; }
+        .animate-layers-2 { animation: layers-float 4s ease-in-out infinite 1s; }
+        .animate-layers-3 { animation: layers-float 4s ease-in-out infinite 2s; }
 
         @keyframes terminal-blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .animate-terminal-cursor {
@@ -316,19 +237,9 @@
         }
 
         @keyframes float-topic {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            33% {
-                transform: translateY(-8px) rotate(1deg);
-            }
-
-            66% {
-                transform: translateY(4px) rotate(-1deg);
-            }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-8px) rotate(1deg); }
+            66% { transform: translateY(4px) rotate(-1deg); }
         }
 
         .topic-circle {
@@ -341,41 +252,18 @@
         }
 
         @keyframes pulse-subtle {
-
-            0%,
-            100% {
-                opacity: 0.4;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.8;
-                transform: scale(1.05);
-            }
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
         }
 
         .animate-pulse-subtle {
             animation: pulse-subtle 4s ease-in-out infinite;
         }
 
-        .orbit-container {
-            perspective: 1000px;
-        }
-
         @keyframes float-slow {
-
-            0%,
-            100% {
-                transform: translateY(0) translateX(0);
-            }
-
-            33% {
-                transform: translateY(-10px) translateX(5px);
-            }
-
-            66% {
-                transform: translateY(5px) translateX(-8px);
-            }
+            0%, 100% { transform: translateY(0) translateX(0); }
+            33% { transform: translateY(-10px) translateX(5px); }
+            66% { transform: translateY(5px) translateX(-8px); }
         }
 
         .animate-float-slow {
@@ -434,29 +322,26 @@
                     '244, 114, 182'  // Pink
                 ];
 
-                // Create stars with x, y, z coordinates for true 3D movement
-                const numStars = 24000;
+                const numStars = 2000;
                 const stars = Array.from({ length: numStars }, () => ({
                     x: Math.random() * 2000 - 1000,
                     y: Math.random() * 2000 - 1000,
                     z: Math.random() * 2000,
-                    size: Math.random() * 0.5 + 0.1,
-                    opacity: Math.random() * 0.3 + 0.85,
+                    size: Math.random() * 0.8 + 0.2,
+                    opacity: Math.random() * 0.3 + 0.7,
                     color: colors[Math.floor(Math.random() * colors.length)]
                 }));
 
                 const animate = () => {
                     ctx.clearRect(0, 0, w, h);
-
-                    // Additive blending makes overlapping stars much brighter and "vibrant"
                     ctx.globalCompositeOperation = 'lighter';
 
                     const cx = w / 2;
                     const cy = h / 2;
 
                     stars.forEach(s => {
-                        // Much slower movement for "slowest" cosmic feel
-                        s.z -= 0.04;
+                        // ADJUSTED SPEED: Changed from 2.5 to 0.65 for a cinematic glide
+                        s.z -= 0.65;
 
                         if (s.z <= 1) {
                             s.z = 2000;
@@ -469,8 +354,8 @@
                         const py = s.y * k + cy;
 
                         if (px >= 0 && px <= w && py >= 0 && py <= h) {
-                            const size = (1 - s.z / 2000) * 1.5 * s.size * k * 0.28;
-                            const opacity = (1 - s.z / 2000) * s.opacity * 1.4;
+                            const size = (1 - s.z / 2000) * 2.0 * s.size * k * 0.3;
+                            const opacity = (1 - s.z / 2000) * s.opacity * 1.5;
 
                             ctx.beginPath();
                             ctx.arc(px, py, Math.max(0, size), 0, Math.PI * 2);
@@ -487,7 +372,7 @@
                 window.addEventListener('resize', resize);
                 return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
             }, [isDark]);
-            return <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, pointerEvents: 'none', opacity: isDark ? 0.9 : 0.7 }} />;
+            return <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, pointerEvents: 'none', opacity: isDark ? 0.9 : 0.6 }} />;
         };
 
         const SunIcon = () => (
@@ -527,7 +412,6 @@
 
         const CompanyLogo = ({ name, isDark, className = '' }) => {
             const filename = `images/${name.toLowerCase()}-logo.webp`;
-
             return (
                 <div className={`flex items-center justify-center px-5 sm:px-8 h-full transition-all duration-500`}>
                     <img
@@ -537,9 +421,7 @@
                         style={{
                             width: 'auto',
                             height: '112px',
-                            filter: isDark
-                                ? 'brightness(0) invert(1) opacity(0.7)'
-                                : 'brightness(0) opacity(0.5)',
+                            filter: isDark ? 'brightness(0) invert(1) opacity(0.7)' : 'brightness(0) opacity(0.5)',
                         }}
                     />
                 </div>
@@ -552,7 +434,7 @@
             useScrollReveal([theme]);
 
             useEffect(() => {
-                const handleScroll = (e) => setScrolled((e.target.scrollTop || window.scrollY) > 50);
+                const handleScroll = () => setScrolled(window.scrollY > 50);
                 window.addEventListener('scroll', handleScroll);
                 document.body.style.backgroundColor = theme === 'dark' ? '#08071e' : '#eef2ff';
                 if (theme === 'dark') document.documentElement.classList.add('dark');
@@ -650,8 +532,6 @@
                         </div>
                     </section>
 
-
-
                     <section className="relative z-10 py-16 sm:py-28 overflow-hidden">
                         <div className="max-w-7xl mx-auto px-6">
                             <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-20 reveal">
@@ -697,12 +577,10 @@
                                 </div>
                                 <div className="lg:w-1/2 relative reveal-right flex justify-center">
                                     <div className="relative w-[300px] h-[300px] sm:w-[450px] sm:h-[450px]">
-                                        {/* Background Orbits */}
                                         <div className={`absolute inset-0 border rounded-full ${isDark ? 'border-white/5' : 'border-indigo-200/40'}`}></div>
                                         <div className={`absolute inset-[15%] border rounded-full ${isDark ? 'border-white/5' : 'border-indigo-200/40'}`}></div>
                                         <div className={`absolute inset-[30%] border rounded-full ${isDark ? 'border-white/5' : 'border-indigo-200/40'}`}></div>
 
-                                        {/* Pulsing Core */}
                                         <div className="absolute inset-[35%] flex flex-col items-center justify-center pt-4">
                                             <div className="w-12 h-12 bg-indigo-500 rounded-full blur-xl animate-pulse absolute"></div>
                                             <div className="w-6 h-6 bg-white rounded-full shadow-[0_0_20px_rgba(255,255,255,0.8)] z-10 transition-all duration-700"></div>
@@ -711,7 +589,6 @@
                                             </span>
                                         </div>
 
-                                        {/* Flying Planets - Distributed Orbit Layers */}
                                         {[
                                             { label: "Intelligence", inset: "inset-0", delay: "0s", duration: "45s", color: "from-pink-500 to-rose-600", size: "w-14 h-14 sm:w-18 sm:h-18" },
                                             { label: "Infrastructure", inset: "inset-[15%]", delay: "-5s", duration: "35s", color: "from-purple-500 to-indigo-600", size: "w-12 h-12 sm:w-15 sm:h-15" },
@@ -729,7 +606,6 @@
                                             </div>
                                         ))}
 
-                                        {/* Connected Lines Visual (SVG) */}
                                         <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" viewBox="0 0 100 100">
                                             <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.1" strokeDasharray="1 3" />
                                             <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="0.1" strokeDasharray="1 3" />
@@ -755,10 +631,7 @@
                                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ overflow: 'visible' }}>
                                                 <circle cx="12" cy="12" r="10" strokeOpacity="0.2" />
                                                 <path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" fill="currentColor" fillOpacity="0.1" className="animate-gear" style={{ transformOrigin: 'center' }} />
-                                                <line x1="12" y1="2" x2="12" y2="4" />
-                                                <line x1="12" y1="20" x2="12" y2="22" />
-                                                <line x1="2" y1="12" x2="4" y2="12" />
-                                                <line x1="20" y1="12" x2="22" y2="12" />
+                                                <line x1="12" y1="2" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22" /><line x1="2" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22" y2="12" />
                                             </svg>
                                         )
                                     },
@@ -782,8 +655,7 @@
                                                 <rect x="2" y="3" width="20" height="14" rx="2" strokeOpacity="0.2" />
                                                 <path d="M7 8l3 3-3 3" />
                                                 <line x1="12" y1="14" x2="16" y2="14" className="animate-terminal-cursor" />
-                                                <path d="M2 17h20" opacity="0.2" />
-                                                <path d="M6 21h12" />
+                                                <path d="M2 17h20" opacity="0.2" /><path d="M6 21h12" />
                                             </svg>
                                         )
                                     }
@@ -802,7 +674,7 @@
                         <div className="max-w-6xl mx-auto text-center">
                             <h2 className={`serif text-4xl sm:text-7xl lg:text-8xl mb-6 font-bold reveal ${isDark ? 'text-white' : 'text-black'}`}>The practitioners<br /><span className="serif-italic font-normal">setting the pace</span></h2>
                             <p className={`text-base sm:text-xl max-w-3xl mx-auto mb-8 font-light leading-[1.7] reveal ${isDark ? 'text-indigo-200' : 'text-indigo-900'}`}>
-                                Senior practitioners from companies like Google, Meta, Amazon, and Stripe. They join the community to share the frameworks, breakthroughs, and hard decisions that define how AI products get shipped.
+                                Join senior practitioners from top product teams. They share frameworks, breakthroughs, and key decisions that define how AI products get shipped.
                             </p>
                         </div>
                     </section>
@@ -810,23 +682,16 @@
                     <section className="relative z-10 py-16 sm:py-40 overflow-hidden">
                         <div className="max-w-7xl mx-auto px-6">
                             <div className="relative h-[360px] sm:h-[540px] flex items-center justify-center">
-                                {/* SVG Constellation Background */}
                                 <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 800 400">
-                                    <defs>
-                                        <radialGradient id="dotGradient" cx="50%" cy="50%" r="50%">
-                                            <stop offset="0%" stopColor="white" stopOpacity="0.8" />
-                                            <stop offset="100%" stopColor="white" stopOpacity="0" />
-                                        </radialGradient>
-                                    </defs>
                                     <g stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.2">
                                         <line x1="200" y1="100" x2="400" y2="200" className="animate-pulse-subtle" />
                                         <line x1="400" y1="200" x2="600" y2="150" className="animate-pulse-subtle" style={{ animationDelay: '1s' }} />
                                         <line x1="600" y1="150" x2="300" y2="300" className="animate-pulse-subtle" style={{ animationDelay: '2s' }} />
                                         <line x1="300" y1="300" x2="200" y2="100" className="animate-pulse-subtle" style={{ animationDelay: '3s' }} />
-                                        <circle cx="200" cy="100" r="2" fill="currentColor" className="animate-pulse" />
-                                        <circle cx="400" cy="200" r="3" fill="currentColor" className="animate-pulse" />
-                                        <circle cx="600" cy="150" r="2" fill="currentColor" className="animate-pulse" />
-                                        <circle cx="300" cy="300" r="4" fill="currentColor" className="animate-pulse" />
+                                        <circle cx="200" cy="100" r="2" fill="currentColor" />
+                                        <circle cx="400" cy="200" r="3" fill="currentColor" />
+                                        <circle cx="600" cy="150" r="2" fill="currentColor" />
+                                        <circle cx="300" cy="300" r="4" fill="currentColor" />
                                     </g>
                                 </svg>
 
@@ -839,7 +704,6 @@
                                     </p>
                                 </div>
 
-                                {/* Floating Labels */}
                                 {[
                                     { name: "Product Managers", x: "8%", y: "18%"  },
                                     { name: "Designers",         x: "72%", y: "12%" },
@@ -850,13 +714,9 @@
                                 ].map((node, i) => (
                                     <div key={i}
                                         className="absolute animate-float-slow hidden sm:block"
-                                        style={{
-                                            left: node.x,
-                                            top: node.y,
-                                            animationDelay: `${i * 1.5}s`,
-                                        }}>
+                                        style={{ left: node.x, top: node.y, animationDelay: `${i * 1.5}s` }}>
                                         <span className={`text-[13px] font-semibold tracking-tight ${isDark ? 'text-white/90' : 'text-indigo-900/80'}`}
-                                            style={{ textShadow: isDark ? '0 1px 12px rgba(0,0,0,0.9), 0 0 24px rgba(0,0,0,0.7)' : '0 1px 8px rgba(255,255,255,0.9)' }}>
+                                            style={{ textShadow: isDark ? '0 1px 12px rgba(0,0,0,0.9)' : '0 1px 8px rgba(255,255,255,0.9)' }}>
                                             {node.name}
                                         </span>
                                     </div>
@@ -884,12 +744,7 @@
                     <footer className="relative z-10 px-6 sm:px-8 py-12 sm:py-16 theme-transition">
                         <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto border-t pt-10 sm:pt-12" style={{ borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' }}>
                             <span className={`serif font-bold text-2xl mb-6 md:mb-0 ${isDark ? 'text-white' : 'text-black'}`}>CoFi</span>
-                            <a
-                                href="https://form.typeform.com/to/HKG5aUgq"
-                                className={`text-[13px] font-medium tracking-wide transition-opacity duration-200 hover:opacity-60 ${isDark ? 'text-indigo-300' : 'text-indigo-600'}`}
-                            >
-                                Contact
-                            </a>
+                            <a href="https://form.typeform.com/to/HKG5aUgq" className={`text-[13px] font-medium tracking-wide transition-opacity duration-200 hover:opacity-60 ${isDark ? 'text-indigo-300' : 'text-indigo-600'}`}>Contact</a>
                         </div>
                     </footer>
                 </div>
@@ -900,5 +755,4 @@
         root.render(<App />);
     </script>
 </body>
-
 </html>
