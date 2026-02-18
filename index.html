@@ -48,13 +48,6 @@
             transition: all 0.5s ease;
         }
 
-        .heading-style {
-            font-family: 'Inter', sans-serif;
-            letter-spacing: -0.05em;
-            line-height: 0.9;
-            font-weight: 500;
-        }
-
         .serif {
             font-family: 'Playfair Display', Georgia, serif;
             letter-spacing: -0.02em;
@@ -66,26 +59,18 @@
             letter-spacing: -0.01em;
         }
 
-        .heading-massive {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            letter-spacing: -0.07em;
-            line-height: 0.8;
-            text-transform: uppercase;
-        }
-
-        .label-tiny {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.5em;
-            text-transform: uppercase;
-            color: rgba(150, 160, 255, 0.5);
-        }
-
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .gradient-text {
@@ -95,7 +80,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: gradientShift 6s ease infinite;
-            font-weight: 500;
         }
 
         .theme-transition {
@@ -137,15 +121,6 @@
             opacity: 1;
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: rgba(99, 102, 241, 0.2);
-            border-radius: 10px;
-        }
-
         .reveal {
             opacity: 0;
             transform: translateY(32px);
@@ -185,13 +160,32 @@
             transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .stagger-children.visible>*:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.08s; }
-        .stagger-children.visible>*:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.16s; }
-        .stagger-children.visible>*:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.24s; }
+        .stagger-children.visible>*:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.08s;
+        }
+
+        .stagger-children.visible>*:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.16s;
+        }
+
+        .stagger-children.visible>*:nth-child(3) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.24s;
+        }
 
         @keyframes infiniteScroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         .scroll-container {
@@ -201,8 +195,13 @@
         }
 
         @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .animate-spin-custom {
@@ -210,8 +209,13 @@
         }
 
         @keyframes gear-rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .animate-gear {
@@ -219,17 +223,39 @@
         }
 
         @keyframes layers-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
         }
 
-        .animate-layers-1 { animation: layers-float 4s ease-in-out infinite; }
-        .animate-layers-2 { animation: layers-float 4s ease-in-out infinite 1s; }
-        .animate-layers-3 { animation: layers-float 4s ease-in-out infinite 2s; }
+        .animate-layers-1 {
+            animation: layers-float 4s ease-in-out infinite;
+        }
+
+        .animate-layers-2 {
+            animation: layers-float 4s ease-in-out infinite 1s;
+        }
+
+        .animate-layers-3 {
+            animation: layers-float 4s ease-in-out infinite 2s;
+        }
 
         @keyframes terminal-blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
 
         .animate-terminal-cursor {
@@ -237,9 +263,19 @@
         }
 
         @keyframes float-topic {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            33% { transform: translateY(-8px) rotate(1deg); }
-            66% { transform: translateY(4px) rotate(-1deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-8px) rotate(1deg);
+            }
+
+            66% {
+                transform: translateY(4px) rotate(-1deg);
+            }
         }
 
         .topic-circle {
@@ -252,8 +288,17 @@
         }
 
         @keyframes pulse-subtle {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
         }
 
         .animate-pulse-subtle {
@@ -261,9 +306,19 @@
         }
 
         @keyframes float-slow {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            33% { transform: translateY(-10px) translateX(5px); }
-            66% { transform: translateY(5px) translateX(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            33% {
+                transform: translateY(-10px) translateX(5px);
+            }
+
+            66% {
+                transform: translateY(5px) translateX(-8px);
+            }
         }
 
         .animate-float-slow {
@@ -316,12 +371,7 @@
                     ctx.scale(dpr, dpr);
                 };
 
-                const colors = [
-                    '168, 85, 247', // Purple
-                    '236, 72, 153', // Magenta
-                    '244, 114, 182'  // Pink
-                ];
-
+                const colors = ['168, 85, 247', '236, 72, 153', '244, 114, 182'];
                 const numStars = 2000;
                 const stars = Array.from({ length: numStars }, () => ({
                     x: Math.random() * 2000 - 1000,
@@ -335,35 +385,28 @@
                 const animate = () => {
                     ctx.clearRect(0, 0, w, h);
                     ctx.globalCompositeOperation = 'lighter';
-
                     const cx = w / 2;
                     const cy = h / 2;
 
                     stars.forEach(s => {
-                        // ADJUSTED SPEED: Changed from 2.5 to 0.65 for a cinematic glide
                         s.z -= 0.65;
-
                         if (s.z <= 1) {
                             s.z = 2000;
                             s.x = Math.random() * 2000 - 1000;
                             s.y = Math.random() * 2000 - 1000;
                         }
-
                         const k = 500 / s.z;
                         const px = s.x * k + cx;
                         const py = s.y * k + cy;
-
                         if (px >= 0 && px <= w && py >= 0 && py <= h) {
                             const size = (1 - s.z / 2000) * 2.0 * s.size * k * 0.3;
                             const opacity = (1 - s.z / 2000) * s.opacity * 1.5;
-
                             ctx.beginPath();
                             ctx.arc(px, py, Math.max(0, size), 0, Math.PI * 2);
                             ctx.fillStyle = `rgba(${s.color}, ${opacity})`;
                             ctx.fill();
                         }
                     });
-
                     raf = requestAnimationFrame(animate);
                 };
 
@@ -442,6 +485,11 @@
                 return () => window.removeEventListener('scroll', handleScroll);
             }, [theme]);
 
+            const handleHomeClick = (e) => {
+                e.preventDefault();
+                window.location.reload();
+            };
+
             const isDark = theme === 'dark';
             const companies = ['Airbnb', 'Amazon', 'Disney', 'Google', 'Meta', 'Microsoft', 'Spotify', 'Stripe'];
             const trustLogos = [];
@@ -450,7 +498,7 @@
             const topics = [
                 { label: 'RAG', color: { dark: 'border-pink-500/50 bg-pink-500/10 text-pink-300 shadow-[0_0_20px_rgba(236,72,153,0.2)]', light: 'border-pink-200 bg-pink-50 text-pink-600' } },
                 { label: 'LLMs', color: { dark: 'border-purple-500/50 bg-purple-500/10 text-purple-300 shadow-[0_0_20px_rgba(168,85,247,0.2)]', light: 'border-purple-200 bg-purple-50 text-purple-600' } },
-                { label: 'Agents', color: { dark: 'border-indigo-500/50 bg-indigo-500/10 text-indigo-300 shadow-[0_0_20px_rgba(99,102,241,0.2)]', light: 'border-indigo-200 bg-indigo-50 text-indigo-600' } },
+                { label: 'Agents', color: { dark: 'border-indigo-500/50 bg-indigo-500/10 text-indigo-300 shadow-[0_0_20px_rgba(99,102,241,0.2)]', light: 'border-indigo-200 bg-pink-50 text-indigo-600' } },
                 { label: 'Evaluation', color: { dark: 'border-cyan-500/50 bg-cyan-500/10 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.2)]', light: 'border-cyan-200 bg-cyan-50 text-cyan-600' } },
                 { label: 'Latency', color: { dark: 'border-blue-500/50 bg-blue-500/10 text-blue-300 shadow-[0_0_20px_rgba(59,130,246,0.2)]', light: 'border-blue-200 bg-blue-50 text-blue-600' } },
                 { label: 'Multimodal', color: { dark: 'border-rose-500/50 bg-rose-500/10 text-rose-300 shadow-[0_0_20px_rgba(244,114,182,0.2)]', light: 'border-rose-200 bg-rose-50 text-rose-600' } },
@@ -469,7 +517,7 @@
                         transition: 'all 0.5s ease'
                     }}>
                         <div className="flex items-center gap-1.5">
-                            <span className="serif font-bold text-[15px] sm:text-[17px] tracking-tight">CoFi</span>
+                            <a href="#" onClick={handleHomeClick} className="serif font-bold text-[15px] sm:text-[17px] tracking-tight hover:opacity-70 transition-opacity">CoFi</a>
                         </div>
                         <div className="flex gap-4 items-center">
                             <button
@@ -491,8 +539,8 @@
                                 <span className="serif block mb-2">The</span>
                                 <span className="serif block mb-8">community</span>
                                 <span className="serif-italic block font-normal py-6 text-[0.65em] opacity-80">for</span>
-                                <span className="gradient-text heading-massive block text-[0.75em]">AI Product</span>
-                                <span className="gradient-text heading-massive block text-[0.75em]">Leaders</span>
+                                <span className="gradient-text serif block text-[0.85em] font-bold py-2">AI Product</span>
+                                <span className="gradient-text serif block text-[0.85em] font-bold">Leaders</span>
                             </h1>
                             <div className="reveal w-full">
                                 <h2 className={`serif-italic text-lg sm:text-2xl md:text-3xl font-normal max-w-3xl mx-auto leading-[1.6] mb-12 ${isDark ? 'text-indigo-200/80' : 'text-indigo-950/70'}`}>
@@ -580,7 +628,6 @@
                                         <div className={`absolute inset-0 border rounded-full ${isDark ? 'border-white/5' : 'border-indigo-200/40'}`}></div>
                                         <div className={`absolute inset-[15%] border rounded-full ${isDark ? 'border-white/5' : 'border-indigo-200/40'}`}></div>
                                         <div className={`absolute inset-[30%] border rounded-full ${isDark ? 'border-white/5' : 'border-indigo-200/40'}`}></div>
-
                                         <div className="absolute inset-[35%] flex flex-col items-center justify-center pt-4">
                                             <div className="w-12 h-12 bg-indigo-500 rounded-full blur-xl animate-pulse absolute"></div>
                                             <div className="w-6 h-6 bg-white rounded-full shadow-[0_0_20px_rgba(255,255,255,0.8)] z-10 transition-all duration-700"></div>
@@ -588,15 +635,12 @@
                                                 Decision <br /> Making
                                             </span>
                                         </div>
-
                                         {[
                                             { label: "Intelligence", inset: "inset-0", delay: "0s", duration: "45s", color: "from-pink-500 to-rose-600", size: "w-14 h-14 sm:w-18 sm:h-18" },
                                             { label: "Infrastructure", inset: "inset-[15%]", delay: "-5s", duration: "35s", color: "from-purple-500 to-indigo-600", size: "w-12 h-12 sm:w-15 sm:h-15" },
                                             { label: "Interaction", inset: "inset-[30%]", delay: "-10s", duration: "25s", color: "from-cyan-400 to-blue-500", size: "w-10 h-10 sm:w-13 sm:h-13" }
                                         ].map((node, i) => (
-                                            <div key={i}
-                                                className={`absolute ${node.inset} animate-spin-custom`}
-                                                style={{ animationDuration: node.duration, animationDelay: node.delay }}>
+                                            <div key={i} className={`absolute ${node.inset} animate-spin-custom`} style={{ animationDuration: node.duration, animationDelay: node.delay }}>
                                                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                                     <div className={`${node.size} rounded-full bg-gradient-to-br ${node.color} shadow-[0_0_30px_rgba(0,0,0,0.2)] relative overflow-hidden group border border-white/10`}>
                                                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
@@ -605,7 +649,6 @@
                                                 </div>
                                             </div>
                                         ))}
-
                                         <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" viewBox="0 0 100 100">
                                             <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.1" strokeDasharray="1 3" />
                                             <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="0.1" strokeDasharray="1 3" />
@@ -694,7 +737,6 @@
                                         <circle cx="300" cy="300" r="4" fill="currentColor" />
                                     </g>
                                 </svg>
-
                                 <div className="relative z-10 text-center max-w-2xl reveal">
                                     <h2 className={`serif text-4xl sm:text-6xl font-bold mb-6 ${isDark ? 'text-white' : 'text-black'}`}>
                                         The collective <br /><span className="serif-italic font-normal">constellation.</span>
@@ -703,20 +745,16 @@
                                         A distributed network of expertise across the most ambitious product teams in the world. Shared knowledge, accelerated.
                                     </p>
                                 </div>
-
                                 {[
-                                    { name: "Product Managers", x: "8%", y: "18%"  },
-                                    { name: "Designers",         x: "72%", y: "12%" },
-                                    { name: "Engineering Leads", x: "6%",  y: "70%" },
-                                    { name: "UX Researchers",    x: "74%", y: "68%" },
-                                    { name: "Data Scientists",   x: "38%", y: "86%" },
-                                    { name: "Creative Directors",x: "50%", y: "5%"  }
+                                    { name: "Product Managers", x: "8%", y: "18%" },
+                                    { name: "Designers", x: "72%", y: "12%" },
+                                    { name: "Engineering Leads", x: "6%", y: "70%" },
+                                    { name: "UX Researchers", x: "74%", y: "68%" },
+                                    { name: "Data Scientists", x: "38%", y: "86%" },
+                                    { name: "Creative Directors", x: "50%", y: "5%" }
                                 ].map((node, i) => (
-                                    <div key={i}
-                                        className="absolute animate-float-slow hidden sm:block"
-                                        style={{ left: node.x, top: node.y, animationDelay: `${i * 1.5}s` }}>
-                                        <span className={`text-[13px] font-semibold tracking-tight ${isDark ? 'text-white/90' : 'text-indigo-900/80'}`}
-                                            style={{ textShadow: isDark ? '0 1px 12px rgba(0,0,0,0.9)' : '0 1px 8px rgba(255,255,255,0.9)' }}>
+                                    <div key={i} className="absolute animate-float-slow hidden sm:block" style={{ left: node.x, top: node.y, animationDelay: `${i * 1.5}s` }}>
+                                        <span className={`text-[13px] font-semibold tracking-tight ${isDark ? 'text-white/90' : 'text-indigo-900/80'}`} style={{ textShadow: isDark ? '0 1px 12px rgba(0,0,0,0.9)' : '0 1px 8px rgba(255,255,255,0.9)' }}>
                                             {node.name}
                                         </span>
                                     </div>
@@ -743,7 +781,7 @@
 
                     <footer className="relative z-10 px-6 sm:px-8 py-12 sm:py-16 theme-transition">
                         <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto border-t pt-10 sm:pt-12" style={{ borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' }}>
-                            <span className={`serif font-bold text-2xl mb-6 md:mb-0 ${isDark ? 'text-white' : 'text-black'}`}>CoFi</span>
+                            <a href="#" onClick={handleHomeClick} className={`serif font-bold text-2xl mb-6 md:mb-0 hover:opacity-70 transition-opacity ${isDark ? 'text-white' : 'text-black'}`}>CoFi</a>
                             <a href="https://form.typeform.com/to/HKG5aUgq" className={`text-[13px] font-medium tracking-wide transition-opacity duration-200 hover:opacity-60 ${isDark ? 'text-indigo-300' : 'text-indigo-600'}`}>Contact</a>
                         </div>
                     </footer>
@@ -755,4 +793,5 @@
         root.render(<App />);
     </script>
 </body>
+
 </html>
