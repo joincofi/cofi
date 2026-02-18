@@ -780,9 +780,16 @@
                     </section>
 
                     <footer className="relative z-10 px-6 sm:px-8 py-12 sm:py-16 theme-transition">
-                        <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto border-t pt-10 sm:pt-12" style={{ borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' }}>
-                            <a href="#" onClick={handleHomeClick} className={`serif font-bold text-2xl mb-6 md:mb-0 hover:opacity-70 transition-opacity ${isDark ? 'text-white' : 'text-black'}`}>CoFi</a>
-                            <a href="https://form.typeform.com/to/HKG5aUgq" className={`text-[13px] font-medium tracking-wide transition-opacity duration-200 hover:opacity-60 ${isDark ? 'text-indigo-300' : 'text-indigo-600'}`}>Contact</a>
+                        <div className="flex flex-col md:grid md:grid-cols-3 items-center w-full max-w-7xl mx-auto border-t pt-10 sm:pt-12" style={{ borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' }}>
+                            <div className="md:justify-self-start">
+                                <a href="#" onClick={handleHomeClick} className={`serif font-bold text-2xl mb-6 md:mb-0 transition-all duration-200 ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-indigo-600'}`}>CoFi</a>
+                            </div>
+                            <div className="md:text-center mb-6 md:mb-0">
+                                <span className={`text-[13px] font-medium tracking-wide ${isDark ? 'text-white/30' : 'text-black/30'}`}>© 2026 CoFi Labs Inc.</span>
+                            </div>
+                            <div className="md:justify-self-end">
+                                <a href="https://form.typeform.com/to/HKG5aUgq" className={`text-[13px] font-medium transition-all duration-200 tracking-wide ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-indigo-600'}`}>Contact</a>
+                            </div>
                         </div>
                     </footer>
                 </div>
