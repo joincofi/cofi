@@ -487,7 +487,7 @@
 
             const handleHomeClick = (e) => {
                 e.preventDefault();
-                window.location.reload();
+                window.location.href = window.location.pathname;
             };
 
             const isDark = theme === 'dark';
