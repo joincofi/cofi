@@ -324,6 +324,11 @@
         .animate-float-slow {
             animation: float-slow 10s ease-in-out infinite;
         }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(5px); opacity: 1; }
+        }
     </style>
 </head>
 
@@ -463,13 +468,48 @@
                         className={className}
                         style={{
                             width: 'auto',
-                            height: '112px',
+                            height: 'clamp(64px, 10vw, 112px)',
                             filter: isDark ? 'brightness(0) invert(1) opacity(0.7)' : 'brightness(0) opacity(0.5)',
                         }}
                     />
                 </div>
             );
         };
+
+        const ScrollHint = ({ isDark, scrolled }) => (
+            <div
+                style={{
+                    position: 'fixed',
+                    bottom: '2rem',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    zIndex: 40,
+                    opacity: scrolled ? 0 : 1,
+                    transition: 'opacity 0.6s ease',
+                    pointerEvents: 'none',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '6px',
+                }}
+            >
+                <span style={{
+                    fontSize: '9px',
+                    fontWeight: 700,
+                    letterSpacing: '0.25em',
+                    textTransform: 'uppercase',
+                    color: isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.25)',
+                }}>Scroll</span>
+                <svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke={isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.25)'}
+                    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                    style={{ animation: 'scrollBounce 1.8s ease-in-out infinite' }}
+                >
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </div>
+        );
 
         const App = () => {
             const [theme, setTheme] = useState('dark');
@@ -538,18 +578,19 @@
                         </div>
                     </nav>
 
-                    <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-28 pb-16 sm:pt-32 sm:pb-24 overflow-hidden">
+                    <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-28 pb-16 sm:pt-32 sm:pb-24 overflow-x-hidden">
                         <StarField isDark={isDark} />
+                        <ScrollHint isDark={isDark} scrolled={scrolled} />
                         <div className="relative z-10 flex flex-col items-center w-full max-w-6xl">
-                            <h1 className={`text-[12vw] sm:text-9xl lg:text-[11rem] mb-10 leading-[0.82] ${isDark ? 'text-white' : 'text-black'}`}>
-                                <span className="serif block mb-2">The</span>
-                                <span className="serif block mb-8">community</span>
-                                <span className="serif-italic block font-normal py-6 text-[0.65em] opacity-80">for</span>
+                            <h1 className={`text-[12vw] sm:text-9xl lg:text-[11rem] mb-10 leading-[0.88] sm:leading-[0.82] pb-3 ${isDark ? 'text-white' : 'text-black'}`}>
+                                <span className="serif font-bold block mb-2">The</span>
+                                <span className="serif font-bold block mb-8">community</span>
+                                <span className="serif-italic block font-light py-6 text-[0.65em] opacity-80">for</span>
                                 <span className="gradient-text serif block text-[0.85em] font-bold py-2">AI Product</span>
                                 <span className="gradient-text serif block text-[0.85em] font-bold">Teams</span>
                             </h1>
                             <div className="reveal w-full">
-                                <h2 className={`serif-italic text-lg sm:text-2xl md:text-3xl font-normal max-w-3xl mx-auto leading-[1.6] mb-12 ${isDark ? 'text-indigo-200/80' : 'text-indigo-950/70'}`}>
+                                <h2 className={`serif-italic text-xl sm:text-2xl md:text-3xl font-normal max-w-2xl mx-auto leading-[1.4] mb-12 ${isDark ? 'text-indigo-200/80' : 'text-indigo-950/70'}`}>
                                     CoFi is where product managers, designers, and engineers building with AI learn from each other and hear from leading practitioners.
                                 </h2>
                                 <div className="w-full max-w-xl mx-auto mt-2">
@@ -557,7 +598,7 @@
                                         maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
                                         WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)'
                                     }}>
-                                        <div className="scroll-container flex flex-row flex-nowrap items-center" style={{ height: '128px' }}>
+                                        <div className="scroll-container flex flex-row flex-nowrap items-center" style={{ height: 'clamp(80px, 12vw, 128px)' }}>
                                             {trustLogos.map((name, idx) => (
                                                 <CompanyLogo key={idx} name={name} isDark={isDark} />
                                             ))}
@@ -571,7 +612,7 @@
                     <section className="relative z-10 px-6 py-20 sm:py-40 overflow-hidden">
                         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-24 items-start">
                             <div className="md:w-1/2">
-                                <h2 className={`serif text-4xl sm:text-6xl lg:text-7xl font-bold mb-8 reveal-left ${isDark ? 'text-white' : 'text-black'}`}>
+                                <h2 className={`serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-[-0.03em] mb-8 reveal-left ${isDark ? 'text-white' : 'text-black'}`}>
                                     A home for AI product work.
                                 </h2>
                             </div>
@@ -589,7 +630,7 @@
                     <section className="relative z-10 py-16 sm:py-28 overflow-hidden">
                         <div className="max-w-7xl mx-auto px-6">
                             <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-20 reveal">
-                                <h2 className={`serif text-3xl sm:text-5xl font-bold mb-6 ${isDark ? 'text-white' : 'text-black'}`}>
+                                <h2 className={`serif text-3xl sm:text-5xl font-bold tracking-[-0.03em] mb-6 ${isDark ? 'text-white' : 'text-black'}`}>
                                     Going deep on the <br /><span className="serif-italic font-normal">decisions that matter.</span>
                                 </h2>
                             </div>
@@ -607,7 +648,7 @@
                         <div className="max-w-7xl mx-auto px-6">
                             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                                 <div className="lg:w-1/2 reveal-left">
-                                    <h2 className={`serif text-4xl sm:text-6xl font-bold mb-8 ${isDark ? 'text-white' : 'text-black'}`}>
+                                    <h2 className={`serif text-4xl sm:text-6xl font-bold tracking-[-0.03em] mb-8 ${isDark ? 'text-white' : 'text-black'}`}>
                                         The AI <br /><span className="serif-italic font-normal">Product Framework.</span>
                                     </h2>
                                     <p className={`text-xl lg:text-2xl leading-[1.7] font-light mb-12 ${isDark ? 'text-indigo-100' : 'text-indigo-950'}`}>
@@ -623,7 +664,7 @@
                                                 <div className={`w-3 h-3 rounded-full bg-gradient-to-br ${item.color} shadow-lg shrink-0`}></div>
                                                 <div>
                                                     <h4 className={`font-bold uppercase tracking-[0.2em] text-[10px] mb-1 ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>{item.title}</h4>
-                                                    <p className={`text-base leading-snug ${isDark ? 'text-indigo-200/60' : 'text-indigo-900/60'}`}>{item.desc}</p>
+                                                    <p className={`text-base leading-[1.6] ${isDark ? 'text-indigo-200/60' : 'text-indigo-900/60'}`}>{item.desc}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -668,7 +709,7 @@
                     <section className="relative z-10 px-6 py-16 sm:py-36 overflow-hidden">
                         <div className="max-w-7xl mx-auto">
                             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-24 gap-8">
-                                <h2 className={`serif text-4xl sm:text-7xl font-bold reveal-left ${isDark ? 'text-white' : 'text-black'}`}>For the people<br /><span className="serif-italic font-normal">making the decisions.</span></h2>
+                                <h2 className={`serif text-4xl sm:text-7xl font-bold tracking-[-0.03em] reveal-left ${isDark ? 'text-white' : 'text-black'}`}>For the people<br /><span className="serif-italic font-normal">making the decisions.</span></h2>
                                 <p className={`serif-italic text-lg sm:text-2xl font-normal max-w-md reveal-right ${isDark ? 'text-indigo-300' : 'text-indigo-600'}`}>Where the whole team converges.</p>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-16 stagger-children">
@@ -721,7 +762,7 @@
 
                     <section className={`relative z-10 px-6 py-16 sm:py-40 overflow-hidden theme-transition ${isDark ? 'bg-transparent' : 'bg-indigo-50/10'}`}>
                         <div className="max-w-6xl mx-auto text-center">
-                            <h2 className={`serif text-4xl sm:text-7xl lg:text-8xl mb-6 font-bold reveal ${isDark ? 'text-white' : 'text-black'}`}>The practitioners<br /><span className="serif-italic font-normal">setting the pace.</span></h2>
+                            <h2 className={`serif text-4xl sm:text-7xl lg:text-8xl mb-6 font-bold tracking-[-0.03em] reveal ${isDark ? 'text-white' : 'text-black'}`}>The practitioners<br /><span className="serif-italic font-normal">setting the pace.</span></h2>
                             <p className={`text-base sm:text-xl max-w-3xl mx-auto mb-8 font-light leading-[1.7] reveal ${isDark ? 'text-indigo-200' : 'text-indigo-900'}`}>
                                 Join senior practitioners from top product teams. They share frameworks, breakthroughs, and key decisions that define how AI products get shipped.
                             </p>
@@ -744,10 +785,10 @@
                                     </g>
                                 </svg>
                                 <div className="relative z-10 text-center max-w-2xl mx-auto reveal">
-                                    <h2 className={`serif text-4xl sm:text-6xl font-bold mb-6 ${isDark ? 'text-white' : 'text-black'}`}>
+                                    <h2 className={`serif text-4xl sm:text-6xl font-bold tracking-[-0.03em] mb-6 ${isDark ? 'text-white' : 'text-black'}`}>
                                         The collective <br /><span className="serif-italic font-normal">constellation.</span>
                                     </h2>
-                                    <p className={`text-lg sm:text-xl font-light ${isDark ? 'text-indigo-200' : 'text-indigo-950'}`}>
+                                    <p className={`text-lg sm:text-xl font-light leading-[1.7] ${isDark ? 'text-indigo-200' : 'text-indigo-950'}`}>
                                         A distributed network of expertise across the most ambitious product teams in the world. Shared knowledge, accelerated.
                                     </p>
                                 </div>
@@ -771,9 +812,9 @@
 
                     <section className="relative z-10 px-6 pt-8 pb-20 sm:pt-12 sm:pb-32 flex flex-col items-center justify-center">
                         <div className="max-w-7xl mx-auto text-center z-20 reveal">
-                            <h2 className={`text-5xl sm:text-8xl lg:text-[9rem] mb-12 leading-[0.88] font-bold ${isDark ? 'text-white' : 'text-black'}`}>
+                            <h2 className={`text-5xl sm:text-8xl lg:text-[9rem] mb-12 leading-[0.88] font-bold tracking-[-0.04em] ${isDark ? 'text-white' : 'text-black'}`}>
                                 <span className="serif block font-light">Join us at the</span>
-                                <span className="gradient-text serif block">AI UX</span>
+                                <span className="gradient-text serif font-bold block">AI UX</span>
                                 <span className="gradient-text serif-italic font-normal block">Summit</span>
                             </h2>
                             <p className={`serif-italic text-lg sm:text-2xl font-normal max-w-4xl mx-auto mb-16 px-4 ${isDark ? 'text-indigo-100' : 'text-indigo-950'}`}>
@@ -786,15 +827,16 @@
                     </section>
 
                     <footer className="relative z-10 px-6 sm:px-8 py-12 sm:py-16 theme-transition">
-                        <div className="flex flex-col md:grid md:grid-cols-3 items-center w-full max-w-7xl mx-auto border-t pt-10 sm:pt-12" style={{ borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' }}>
+                        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-px ${isDark ? 'bg-gradient-to-r from-transparent via-white/10 to-transparent' : 'bg-gradient-to-r from-transparent via-slate-200/60 to-transparent'}`}></div>
+                        <div className="flex flex-col md:grid md:grid-cols-3 items-center w-full max-w-7xl mx-auto gap-6 md:gap-0">
                             <div className="md:justify-self-start">
-                                <a href="#" onClick={handleHomeClick} className={`serif font-bold text-2xl mb-6 md:mb-0 transition-all duration-200 ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-indigo-600'}`}>CoFi</a>
+                                <a href="#" onClick={handleHomeClick} className={`serif font-bold text-[15px] transition-all duration-200 ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-black'}`}>CoFi</a>
                             </div>
-                            <div className="md:text-center mb-6 md:mb-0">
-                                <span className={`text-[13px] font-medium tracking-wide ${isDark ? 'text-white/30' : 'text-black/30'}`}>© 2026 CoFi Labs Inc.</span>
+                            <div className="md:text-center">
+                                <span className={`text-[13px] font-medium ${isDark ? 'text-white/30' : 'text-black/30'}`}>© 2026 CoFi Labs Inc.</span>
                             </div>
                             <div className="md:justify-self-end">
-                                <a href="https://form.typeform.com/to/HKG5aUgq" className={`text-[13px] font-medium transition-all duration-200 tracking-wide ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-indigo-600'}`}>Contact</a>
+                                <a href="https://form.typeform.com/to/HKG5aUgq" className={`text-[13px] font-medium transition-all duration-200 ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-indigo-600'}`}>Contact</a>
                             </div>
                         </div>
                     </footer>
