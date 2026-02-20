@@ -7,15 +7,17 @@
     <title>CoFi | The Community for AI Product Teams</title>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%236366f1%22/><text x=%2250%%22 y=%2257%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2255%22 fill=%22white%22>C</text></svg>">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
         :root {
             --bg-cream: #FDFBF7;
@@ -329,6 +331,11 @@
             0%, 100% { transform: translateY(0); opacity: 0.6; }
             50% { transform: translateY(5px); opacity: 1; }
         }
+
+        .cv-auto {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 800px;
+        }
     </style>
 </head>
 
@@ -377,7 +384,7 @@
                 };
 
                 const colors = ['168, 85, 247', '236, 72, 153', '244, 114, 182'];
-                const numStars = 2000;
+                const numStars = 600;
                 const stars = Array.from({ length: numStars }, () => ({
                     x: Math.random() * 2000 - 1000,
                     y: Math.random() * 2000 - 1000,
@@ -465,6 +472,7 @@
                     <img
                         src={filename}
                         alt={`${name} logo`}
+                        decoding="async"
                         className={className}
                         style={{
                             width: 'auto',
@@ -609,7 +617,7 @@
                         </div>
                     </section>
 
-                    <section className="relative z-10 px-6 py-20 sm:py-40 overflow-hidden">
+                    <section className="cv-auto relative z-10 px-6 py-20 sm:py-40 overflow-hidden">
                         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-24 items-start">
                             <div className="md:w-1/2">
                                 <h2 className={`serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-[-0.03em] mb-8 reveal-left ${isDark ? 'text-white' : 'text-black'}`}>
@@ -627,7 +635,7 @@
                         </div>
                     </section>
 
-                    <section className="relative z-10 py-16 sm:py-28 overflow-hidden">
+                    <section className="cv-auto relative z-10 py-16 sm:py-28 overflow-hidden">
                         <div className="max-w-7xl mx-auto px-6">
                             <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-20 reveal">
                                 <h2 className={`serif text-3xl sm:text-5xl font-bold tracking-[-0.03em] mb-6 ${isDark ? 'text-white' : 'text-black'}`}>
@@ -644,7 +652,7 @@
                         </div>
                     </section>
 
-                    <section className="relative z-10 py-20 sm:py-40 overflow-hidden">
+                    <section className="cv-auto relative z-10 py-20 sm:py-40 overflow-hidden">
                         <div className="max-w-7xl mx-auto px-6">
                             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                                 <div className="lg:w-1/2 reveal-left">
@@ -706,7 +714,7 @@
                         </div>
                     </section>
 
-                    <section className="relative z-10 px-6 py-16 sm:py-36 overflow-hidden">
+                    <section className="cv-auto relative z-10 px-6 py-16 sm:py-36 overflow-hidden">
                         <div className="max-w-7xl mx-auto">
                             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-24 gap-8">
                                 <h2 className={`serif text-4xl sm:text-7xl font-bold tracking-[-0.03em] reveal-left ${isDark ? 'text-white' : 'text-black'}`}>For the people<br /><span className="serif-italic font-normal">making the decisions.</span></h2>
@@ -760,7 +768,7 @@
                         </div>
                     </section>
 
-                    <section className={`relative z-10 px-6 py-16 sm:py-40 overflow-hidden theme-transition ${isDark ? 'bg-transparent' : 'bg-indigo-50/10'}`}>
+                    <section className={`cv-auto relative z-10 px-6 py-16 sm:py-40 overflow-hidden theme-transition ${isDark ? 'bg-transparent' : 'bg-indigo-50/10'}`}>
                         <div className="max-w-6xl mx-auto text-center">
                             <h2 className={`serif text-4xl sm:text-7xl lg:text-8xl mb-6 font-bold tracking-[-0.03em] reveal ${isDark ? 'text-white' : 'text-black'}`}>The practitioners<br /><span className="serif-italic font-normal">setting the pace.</span></h2>
                             <p className={`text-base sm:text-xl max-w-3xl mx-auto mb-8 font-light leading-[1.7] reveal ${isDark ? 'text-indigo-200' : 'text-indigo-900'}`}>
@@ -769,7 +777,7 @@
                         </div>
                     </section>
 
-                    <section className="relative z-10 py-16 sm:py-40 overflow-hidden">
+                    <section className="cv-auto relative z-10 py-16 sm:py-40 overflow-hidden">
                         <div className="max-w-7xl mx-auto px-6">
                             <div className="relative h-[360px] sm:h-[540px] flex items-center justify-center">
                                 <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 800 400">
