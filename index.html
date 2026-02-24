@@ -20,7 +20,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
         :root {
-            --bg-cream: #FDFBF7;
+            --bg-cream: #F2EDE6;
             --bg-deep-space: #000000;
         }
 
@@ -33,6 +33,14 @@
             letter-spacing: -0.015em;
             -webkit-font-smoothing: antialiased;
         }
+
+        .bg-indigo-600   { background-color: #C4714F !important; }
+        .hover\:bg-indigo-700:hover { background-color: #A35A35 !important; }
+        .text-indigo-600 { color: #C4714F !important; }
+        .text-indigo-500 { color: #C4714F !important; }
+        .text-indigo-400 { color: #C4714F !important; }
+        .text-indigo-950 { color: #1A0800 !important; }
+        .text-indigo-900 { color: #1A0800 !important; }
 
         h1,
         h2,
@@ -520,26 +528,24 @@
         );
 
         const App = () => {
-            const [theme, setTheme] = useState('light');
             const [scrolled, setScrolled] = useState(false);
-            useScrollReveal([theme]);
+            const isDark = false;
+            useScrollReveal([]);
 
             useEffect(() => {
                 const handleScroll = () => setScrolled(window.scrollY > 50);
                 window.addEventListener('scroll', handleScroll);
-                document.body.style.backgroundColor = theme === 'dark' ? '#08071e' : '#eef2ff';
-                if (theme === 'dark') document.documentElement.classList.add('dark');
-                else document.documentElement.classList.remove('dark');
+                document.body.style.backgroundColor = '#F2EDE6';
+                document.documentElement.classList.remove('dark');
                 return () => window.removeEventListener('scroll', handleScroll);
-            }, [theme]);
+            }, []);
 
             const handleHomeClick = (e) => {
                 e.preventDefault();
                 window.location.href = window.location.pathname;
             };
 
-            const isDark = theme === 'dark';
-            const companies = ['Airbnb', 'Amazon', 'Disney', 'Google', 'Meta', 'Microsoft', 'Spotify', 'Stripe'];
+            const companies =['Airbnb', 'Amazon', 'Disney', 'Google', 'Meta', 'Microsoft', 'Spotify', 'Stripe'];
             const trustLogos = [];
             for (let i = 0; i < 4; i++) companies.forEach(c => trustLogos.push(c));
 
@@ -556,30 +562,21 @@
             ];
 
             return (
-                <div className="viewport-container theme-transition" style={isDark ? { background: 'linear-gradient(160deg, #08071e 0%, #0c0a28 25%, #0f0830 50%, #0a0820 75%, #07061a 100%)' } : { background: 'linear-gradient(135deg, #f0f4ff 0%, #e8eeff 20%, #f5f0ff 40%, #edf5ff 60%, #f8f0ff 80%, #eff4ff 100%)' }}>
+                <div className="viewport-container theme-transition" style={{ background: 'linear-gradient(135deg, #F2EDE6 0%, #EDE6DC 20%, #F2EBE0 40%, #EEE7DA 60%, #EAE3D6 80%, #F2EDE6 100%)' }}>
 
                     <nav className={`fixed top-4 left-4 right-4 sm:top-8 sm:left-8 sm:right-8 z-50 px-4 sm:px-8 py-3 flex justify-between items-center rounded-[1.5rem] ${isDark ? 'text-white' : 'text-black'}`} style={{
                         backdropFilter: scrolled ? 'blur(24px) saturate(160%)' : 'blur(0px)',
-                        background: scrolled ? (isDark ? 'rgba(8,7,30,0.65)' : 'rgba(255,255,255,0.68)') : 'transparent',
-                        border: scrolled ? (isDark ? '1px solid rgba(255,255,255,0.06)' : '1px solid rgba(150,130,255,0.12)') : '1px solid transparent',
+                        background: scrolled ? 'rgba(242,237,230,0.80)' : 'transparent',
+                        border: scrolled ? '1px solid rgba(196,113,79,0.18)' : '1px solid transparent',
                         transition: 'all 0.5s ease'
                     }}>
                         <div className="flex items-center gap-1.5">
                             <a href="#" onClick={handleHomeClick} className="serif font-bold text-[15px] sm:text-[17px] tracking-tight hover:opacity-70 transition-opacity">CoFi</a>
                         </div>
                         <div className="flex gap-4 items-center">
-                            <button
-                                onClick={() => setTheme(isDark ? 'light' : 'dark')}
-                                className={`relative w-11 h-6 rounded-full transition-colors duration-300 ${isDark ? 'bg-white/10 ring-1 ring-white/10' : 'bg-slate-200 ring-1 ring-black/5'}`}
-                                aria-label="Toggle theme"
-                            >
-                                <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white shadow-sm flex items-center justify-center transition-transform duration-300 ${isDark ? 'translate-x-5 text-indigo-950' : 'translate-x-0 text-slate-400'}`}>
-                                    {isDark ? <MoonIcon /> : <SunIcon />}
-                                </div>
-                            </button>
-                            <a 
-                                href="https://members.cofi.so" 
-                                className={`text-[12px] sm:text-[14px] font-medium transition-all duration-200 px-4 py-1.5 rounded-full ${isDark ? 'text-white/70 hover:text-white bg-white/5 hover:bg-white/10' : 'text-black/70 hover:text-black bg-black/5 hover:bg-black/10'}`}
+                            <a
+                                href="https://members.cofi.so"
+                                className="text-[12px] sm:text-[14px] font-medium transition-all duration-200 px-4 py-1.5 rounded-full text-black/70 hover:text-black bg-black/5 hover:bg-black/10"
                             >
                                 Sign In
                             </a>
@@ -588,7 +585,6 @@
 
                     <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-28 pb-16 sm:pt-32 sm:pb-24 overflow-x-hidden">
                         <StarField isDark={isDark} />
-                        <ScrollHint isDark={isDark} scrolled={scrolled} />
                         <div className="relative z-10 flex flex-col items-center w-full max-w-6xl">
                             <h1 className={`text-[12vw] sm:text-9xl lg:text-[11rem] mb-10 leading-[0.88] sm:leading-[0.82] pb-3 ${isDark ? 'text-white' : 'text-black'}`}>
                                 <span className="serif font-bold block mb-2">The</span>
