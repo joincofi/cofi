@@ -707,55 +707,6 @@
                         </div>
                     </section>
 
-                    <section className={`cv-auto relative z-10 px-6 py-16 sm:py-40 overflow-hidden theme-transition ${isDark ? 'bg-transparent' : 'bg-indigo-50/10'}`}>
-                        <div className="max-w-6xl mx-auto text-center">
-                            <h2 className={`serif text-4xl sm:text-7xl lg:text-8xl mb-6 font-bold tracking-[-0.03em] reveal ${isDark ? 'text-white' : 'text-black'}`}>The practitioners<br /><span className="serif-italic font-normal">setting the pace.</span></h2>
-                            <p className={`text-base sm:text-xl max-w-3xl mx-auto mb-8 font-light leading-[1.7] reveal ${isDark ? 'text-indigo-200' : 'text-indigo-900'}`}>
-                                Join senior practitioners from top product teams. They share frameworks, breakthroughs, and key decisions that define how AI products get shipped.
-                            </p>
-                        </div>
-                    </section>
-
-                    <section className="cv-auto relative z-10 py-16 sm:py-40 overflow-hidden">
-                        <div className="max-w-7xl mx-auto px-6">
-                            <div className="relative h-[360px] sm:h-[540px] flex items-center justify-center">
-                                <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 800 400">
-                                    <g stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.2">
-                                        <line x1="200" y1="100" x2="400" y2="200" className="animate-pulse-subtle" />
-                                        <line x1="400" y1="200" x2="600" y2="150" className="animate-pulse-subtle" style={{ animationDelay: '1s' }} />
-                                        <line x1="600" y1="150" x2="300" y2="300" className="animate-pulse-subtle" style={{ animationDelay: '2s' }} />
-                                        <line x1="300" y1="300" x2="200" y2="100" className="animate-pulse-subtle" style={{ animationDelay: '3s' }} />
-                                        <circle cx="200" cy="100" r="2" fill="currentColor" />
-                                        <circle cx="400" cy="200" r="3" fill="currentColor" />
-                                        <circle cx="600" cy="150" r="2" fill="currentColor" />
-                                        <circle cx="300" cy="300" r="4" fill="currentColor" />
-                                    </g>
-                                </svg>
-                                <div className="relative z-10 text-center max-w-2xl mx-auto reveal">
-                                    <h2 className={`serif text-4xl sm:text-6xl font-bold tracking-[-0.03em] mb-6 ${isDark ? 'text-white' : 'text-black'}`}>
-                                        The collective <br /><span className="serif-italic font-normal">constellation.</span>
-                                    </h2>
-                                    <p className={`text-lg sm:text-xl font-light leading-[1.7] ${isDark ? 'text-indigo-200' : 'text-indigo-950'}`}>
-                                        A distributed network of expertise across the most ambitious product teams in the world. Shared knowledge, accelerated.
-                                    </p>
-                                </div>
-                                {[
-                                    { name: "Product Managers", x: "8%", y: "18%" },
-                                    { name: "Designers", x: "72%", y: "12%" },
-                                    { name: "Engineering Leads", x: "6%", y: "70%" },
-                                    { name: "UX Researchers", x: "74%", y: "68%" },
-                                    { name: "Data Scientists", x: "38%", y: "86%" },
-                                    { name: "Creative Directors", x: "50%", y: "5%" }
-                                ].map((node, i) => (
-                                    <div key={i} className="absolute animate-float-slow hidden sm:block" style={{ left: node.x, top: node.y, animationDelay: `${i * 1.5}s` }}>
-                                        <span className={`text-[13px] font-semibold tracking-tight ${isDark ? 'text-white/90' : 'text-indigo-900/80'}`} style={{ textShadow: isDark ? '0 1px 12px rgba(0,0,0,0.9)' : '0 1px 8px rgba(255,255,255,0.9)' }}>
-                                            {node.name}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
 
                     <section className="relative z-10 px-6 pt-8 pb-20 sm:pt-12 sm:pb-32 flex flex-col items-center justify-center">
                         <div className="max-w-7xl mx-auto text-center z-20 reveal">
