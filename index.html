@@ -600,20 +600,24 @@
                         </div>
                     </nav>
 
-                    <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-28 pb-16 sm:pt-32 sm:pb-24 overflow-x-hidden">
+                    <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24 pb-8 sm:pt-28 sm:pb-12 overflow-x-hidden">
                         <StarField isDark={isDark} />
                         <div className="relative z-10 flex flex-col items-center w-full max-w-6xl">
-                            <h1 className={`text-[12vw] sm:text-9xl lg:text-[11rem] mb-10 leading-[0.88] sm:leading-[0.82] pb-3 ${isDark ? 'text-white' : 'text-black'}`}>
+                            <h1 className={`text-[10vw] sm:text-8xl lg:text-[9rem] mb-6 leading-[0.88] sm:leading-[0.82] pb-3 ${isDark ? 'text-white' : 'text-black'}`}>
                                 <span className="serif font-bold block mb-2">The</span>
-                                <span className="serif font-bold block mb-8">community</span>
-                                <span className="serif-italic block font-light py-6 text-[0.65em] opacity-80">for</span>
+                                <span className="serif font-bold block mb-6">community</span>
+                                <span className="serif-italic block font-light py-4 text-[0.65em] opacity-80">for</span>
                                 <span className="gradient-text serif block text-[0.85em] font-bold py-2">AI Product</span>
-                                <span className="gradient-text serif font-bold block text-[0.85em] pb-4">Teams</span>
+                                <span className="gradient-text serif font-bold block text-[0.85em] pb-2">Teams</span>
                             </h1>
                             <div className="reveal w-full">
-                                <h2 className={`serif-italic text-xl sm:text-2xl md:text-3xl font-normal max-w-2xl mx-auto leading-[1.4] mb-12 ${isDark ? 'text-indigo-200/80' : 'text-indigo-950/70'}`}>
+                                <h2 className={`serif-italic text-xl sm:text-2xl md:text-3xl font-normal max-w-2xl mx-auto leading-[1.4] mb-6 ${isDark ? 'text-indigo-200/80' : 'text-indigo-950/70'}`}>
                                     CoFi organizes summits and workshops for product teams building with AI, bringing together practitioners from leading companies to share what's actually working.
                                 </h2>
+                                <div className="mb-6">
+                                    <Button isDark={isDark} href="https://aiuxsummit.com" className="!px-12 !py-5 !text-[13px] sm:!text-[15px]">AI UX Summit</Button>
+                                    <p className={`text-[12px] mt-3 font-medium ${isDark ? 'text-white/40' : 'text-black/40'}`}>March 10, 2026 · Live Online</p>
+                                </div>
                                 <div className="w-full max-w-xl mx-auto mt-2">
                                     <div className="relative overflow-hidden" style={{
                                         maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
@@ -743,8 +747,9 @@
                             <div className="md:justify-self-start">
                                 <a href="#" onClick={handleHomeClick} className={`serif font-bold text-[15px] transition-all duration-200 ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-black'}`}>CoFi</a>
                             </div>
-                            <div className="md:text-center">
+                            <div className="text-center">
                                 <span className={`text-[13px] font-medium ${isDark ? 'text-white/30' : 'text-black/30'}`}>© 2026 CoFi Labs Inc.</span>
+                                <p className={`text-[11px] mt-1 ${isDark ? 'text-white/20' : 'text-black/20'}`}>2482 Yonge St #1135 · Toronto, ON M4P 2H5 · Canada</p>
                             </div>
                             <div className="md:justify-self-end">
                                 <a href="https://form.typeform.com/to/HKG5aUgq" className={`text-[13px] font-medium transition-all duration-200 ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-indigo-600'}`}>Contact</a>
