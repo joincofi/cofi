@@ -546,13 +546,13 @@
 
         const App = () => {
             const [scrolled, setScrolled] = useState(false);
-            const isDark = true;
+            const isDark = false;
             useScrollReveal([]);
 
             useEffect(() => {
                 const handleScroll = () => setScrolled(window.scrollY > 50);
                 window.addEventListener('scroll', handleScroll);
-                document.body.style.backgroundColor = '#000000';
+                document.body.style.backgroundColor = '#FDF0E6';
                 document.documentElement.classList.remove('dark');
                 return () => window.removeEventListener('scroll', handleScroll);
             }, []);
@@ -579,12 +579,12 @@
             ];
 
             return (
-                <div className="viewport-container theme-transition" style={{ background: '#000000' }}>
+                <div className="viewport-container theme-transition" style={{ background: '#FDF0E6' }}>
 
                     <nav className={`fixed top-4 left-4 right-4 sm:top-8 sm:left-8 sm:right-8 z-50 px-4 sm:px-8 py-3 flex justify-between items-center rounded-[1.5rem] ${isDark ? 'text-white' : 'text-black'}`} style={{
                         backdropFilter: scrolled ? 'blur(24px) saturate(160%)' : 'blur(0px)',
-                        background: scrolled ? 'rgba(0,0,0,0.80)' : 'transparent',
-                        border: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+                        background: scrolled ? 'rgba(253,240,230,0.85)' : 'transparent',
+                        border: scrolled ? '1px solid rgba(0,0,0,0.08)' : '1px solid transparent',
                         transition: 'all 0.5s ease'
                     }}>
                         <div className="flex items-center gap-1.5">
