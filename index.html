@@ -339,15 +339,18 @@
     }
     .hero-signin {
       position: absolute;
-      top: 36px;
+      top: 44px;
       right: 40px;
       font-size: 14px;
       font-weight: 600;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.85);
+      padding: 8px 20px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
       z-index: 2;
-      transition: color 0.2s;
+      transition: color 0.2s, border-color 0.2s;
     }
-    .hero-signin:hover { color: #ffffff; }
+    .hero-signin:hover { color: #ffffff; border-color: rgba(255,255,255,0.7); }
 
     /* Mobile */
     @media (max-width: 768px) {
