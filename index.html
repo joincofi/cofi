@@ -78,6 +78,7 @@
     .btn-solid:hover { opacity: 0.88; }
 
     /* ── HERO ── */
+    .hero { transition: background 0.6s; }
     .hero {
       min-height: 100vh;
       display: flex;
@@ -146,7 +147,7 @@
     /* Clouds */
     .cloud { position: absolute; pointer-events: none; z-index: 0; opacity: 0.12; }
 
-    /* Moon */
+    /* Moon / Sun */
     .moon {
       position: absolute;
       top: 10%;
@@ -157,8 +158,9 @@
       background: #fffbe6;
       box-shadow: 0 0 40px 12px rgba(255,245,180,0.25), 0 0 80px 30px rgba(255,230,100,0.1);
       z-index: 1;
-      pointer-events: none;
       overflow: hidden;
+      cursor: pointer;
+      transition: background 0.6s, box-shadow 0.6s;
     }
     .moon::after {
       content: '';
@@ -169,7 +171,32 @@
       height: 72px;
       border-radius: 50%;
       background: #0a1030;
+      transition: opacity 0.6s, background 0.6s;
     }
+    /* Sun state */
+    .moon.is-sun {
+      background: #FFD94A;
+      box-shadow: 0 0 40px 16px rgba(255,210,50,0.5), 0 0 100px 40px rgba(255,180,0,0.25);
+    }
+    .moon.is-sun::after { opacity: 0; }
+
+    /* Light mode */
+    .hero.light-mode { background: linear-gradient(180deg, #E7F7FF 0%, #ffffff 100%); }
+    .hero.light-mode .stars { opacity: 0; transition: opacity 0.6s; }
+    .hero.light-mode .cloud { opacity: 0.55; }
+    .hero.light-mode .hero-title { color: #20023C; }
+    .hero.light-mode .hero-eyebrow { color: rgba(32,2,60,0.6); }
+    .hero.light-mode .hero-sub { color: rgba(32,2,60,0.7); }
+    .hero.light-mode .hero-event-label { color: rgba(32,2,60,0.6); }
+    .hero.light-mode .hero-footer { color: rgba(32,2,60,0.4); }
+    .hero.light-mode .hero-footer a { color: rgba(32,2,60,0.55); border-color: rgba(32,2,60,0.2); }
+    .hero.light-mode .hero-footer a:hover { color: #20023C; border-color: rgba(32,2,60,0.5); }
+    .hero.light-mode .hero-signin { color: rgba(32,2,60,0.7); }
+    .hero.light-mode .hero-signin:hover { color: #20023C; }
+    .hero.light-mode .hero-logo { filter: none; }
+    .hero.light-mode .logo-item img { filter: brightness(0) opacity(0.65); }
+    .hero.light-mode .logos-label { color: rgba(32,2,60,0.45); }
+    .hero.light-mode .btn-solid { background: #0074D4; border-color: #0074D4; color: #fff; }
     .cloud-body { background: #ffffff; border-radius: 50px; position: relative; }
     .cloud-body::before, .cloud-body::after { content: ''; position: absolute; background: #ffffff; border-radius: 50%; }
     @keyframes cloud-drift { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 400px)); } }
@@ -388,6 +415,14 @@
 </section>
 
 <script>
+  // Moon / light mode toggle
+  const moon = document.querySelector('.moon');
+  const heroEl = document.querySelector('.hero');
+  moon.addEventListener('click', () => {
+    moon.classList.toggle('is-sun');
+    heroEl.classList.toggle('light-mode');
+  });
+
   // Shooting stars
   const hero = document.querySelector('.hero');
   function spawnShootingStar() {
@@ -398,7 +433,7 @@
     s.style.setProperty('--dur', (Math.random() * 0.5 + 0.6).toFixed(2) + 's');
     hero.appendChild(s);
     s.addEventListener('animationend', () => s.remove());
-    setTimeout(spawnShootingStar, Math.random() * 5000 + 2000);
+    setTimeout(spawnShootingStar, Math.random() * 10000 + 6000);
   }
   spawnShootingStar();
 
