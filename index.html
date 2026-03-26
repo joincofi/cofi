@@ -1,768 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1419835876287919');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1419835876287919&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-    <title>CoFi | Summits & Workshops for AI Product Teams</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://unpkg.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-        :root {
-            --bg-cream: #F2EDE6;
-            --bg-deep-space: #000000;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoFi | Summits & Workshops for AI Product Teams</title>
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.8s ease;
-            background-color: var(--bg-cream);
-            letter-spacing: -0.015em;
-            -webkit-font-smoothing: antialiased;
-        }
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1419835876287919');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1419835876287919&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 
-        .bg-indigo-600   { background-color: #0071e3 !important; }
-        .hover\:bg-indigo-700:hover { background-color: #0077ed !important; }
-        .text-indigo-600 { color: #C4714F !important; }
-        .text-indigo-500 { color: #C4714F !important; }
-        .text-indigo-400 { color: #C4714F !important; }
-        .text-indigo-950 { color: #1A0800 !important; }
-        .text-indigo-900 { color: #1A0800 !important; }
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Inter', sans-serif;
-            letter-spacing: -0.03em;
-        }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; }
 
-        .viewport-container {
-            margin: 0;
-            position: relative;
-            overflow: clip;
-            min-height: 100vh;
-            transition: all 0.5s ease;
-        }
+    :root {
+      --bg: #ffffff;
+      --text: #20023C;
+      --text-muted: #8E7C9A;
+      --accent: #0074D4;
+      --border: rgba(0,0,0,0.08);
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    }
 
-        .serif {
-            font-family: 'Playfair Display', Georgia, serif;
-            letter-spacing: -0.02em;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
 
-        .serif-italic {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-style: italic;
-            letter-spacing: -0.01em;
-        }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
+    /* ── BUTTONS ── */
+    .btn-solid {
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 28px;
+      background: #0074D4;
+      color: #ffffff;
+      border: 1px solid #0074D4;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+    .btn-solid::after {
+      content: '→';
+      display: inline-block;
+      max-width: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-width 0.2s ease, opacity 0.2s ease, margin-left 0.2s ease;
+      margin-left: 0;
+    }
+    .btn-solid:hover::after { max-width: 20px; opacity: 1; margin-left: 6px; }
+    .btn-solid:hover { opacity: 0.88; }
 
-            50% {
-                background-position: 100% 50%;
-            }
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+      background: #0a0e2e;
+    }
 
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+    /* Shooting stars */
+    .shooting-star {
+      position: absolute;
+      width: 140px;
+      height: 1.5px;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #ffffff 100%);
+      border-radius: 2px;
+      transform: rotate(-35deg);
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
+      animation: shoot var(--dur) ease-out forwards;
+    }
+    @keyframes shoot {
+      0%   { opacity: 0; transform: rotate(-35deg) translateX(-60px); }
+      8%   { opacity: 1; }
+      75%  { opacity: 1; }
+      100% { opacity: 0; transform: rotate(-35deg) translateX(500px); }
+    }
 
-        .gradient-text {
-            background: linear-gradient(270deg, #6366f1, #a855f7, #ec4899, #f97316, #eab308, #06b6d4, #6366f1);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 6s ease infinite;
-        }
+    /* Stars */
+    .stars { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #ffffff;
+      animation: twinkle var(--d, 3s) ease-in-out infinite alternate;
+      animation-delay: var(--delay, 0s);
+    }
+    @keyframes twinkle {
+      from { opacity: var(--op-min, 0.2); }
+      to   { opacity: var(--op-max, 0.9); }
+    }
 
-        .theme-transition {
-            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: clamp(400px, 60vw, 800px);
+      height: clamp(400px, 60vw, 800px);
+      background: linear-gradient(135deg, rgba(20,60,200,0.4) 0%, rgba(70,30,180,0.35) 50%, rgba(0,100,255,0.25) 100%);
+      filter: blur(80px);
+      border-radius: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      animation: glide 25s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes glide {
+      from { transform: translate(-52%, -48%) rotate(0deg) scale(1); }
+      to   { transform: translate(-48%, -52%) rotate(8deg) scale(1.08); }
+    }
 
-        .btn-flip {
-            position: relative;
-            overflow: hidden;
-        }
+    /* Clouds */
+    .cloud { position: absolute; pointer-events: none; z-index: 0; opacity: 0.12; }
 
-        .btn-flip .btn-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
-        }
+    /* Moon */
+    .moon {
+      position: absolute;
+      top: 10%;
+      right: 12%;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #fffbe6;
+      box-shadow: 0 0 40px 12px rgba(255,245,180,0.25), 0 0 80px 30px rgba(255,230,100,0.1);
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .moon::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 14px;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #0a1030;
+    }
+    .cloud-body { background: #ffffff; border-radius: 50px; position: relative; }
+    .cloud-body::before, .cloud-body::after { content: ''; position: absolute; background: #ffffff; border-radius: 50%; }
+    @keyframes cloud-drift { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 400px)); } }
 
-        .btn-flip .btn-label-hover {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transform: translateY(100%);
-            opacity: 0;
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
-        }
+    .cloud-1 .cloud-body { width: 200px; height: 50px; top: 30px; }
+    .cloud-1 .cloud-body::before { width: 90px; height: 90px; top: -44px; left: 30px; }
+    .cloud-1 .cloud-body::after  { width: 60px; height: 60px; top: -28px; left: 100px; }
+    .cloud-1  { top: 12%; left: -220px; animation: cloud-drift 70s linear infinite; }
+    .cloud-1b { top: 12%; left: -220px; animation: cloud-drift 70s linear infinite; animation-delay: -35s; }
 
-        .btn-flip:hover .btn-label {
-            transform: translateY(-100%);
-            opacity: 0;
-        }
+    .cloud-2 .cloud-body,
+    .cloud-2b .cloud-body { width: 140px; height: 38px; top: 22px; }
+    .cloud-2 .cloud-body::before,
+    .cloud-2b .cloud-body::before { width: 64px; height: 64px; top: -32px; left: 18px; }
+    .cloud-2 .cloud-body::after,
+    .cloud-2b .cloud-body::after  { width: 48px; height: 48px; top: -22px; left: 72px; }
+    .cloud-2  { top: 35%; left: -160px; animation: cloud-drift 95s linear infinite; animation-delay: -10s; }
+    .cloud-2b { top: 35%; left: -160px; animation: cloud-drift 95s linear infinite; animation-delay: -57s; }
 
-        .btn-flip:hover .btn-label-hover {
-            transform: translateY(0);
-            opacity: 1;
-        }
+    .cloud-3 .cloud-body,
+    .cloud-3b .cloud-body { width: 260px; height: 60px; top: 38px; }
+    .cloud-3 .cloud-body::before,
+    .cloud-3b .cloud-body::before { width: 110px; height: 110px; top: -56px; left: 40px; }
+    .cloud-3 .cloud-body::after,
+    .cloud-3b .cloud-body::after  { width: 80px; height: 80px; top: -38px; left: 140px; }
+    .cloud-3  { top: 65%; left: -280px; animation: cloud-drift 110s linear infinite; animation-delay: -20s; }
+    .cloud-3b { top: 65%; left: -280px; animation: cloud-drift 110s linear infinite; animation-delay: -75s; }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(32px);
-            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+    .hero-content { position: relative; z-index: 2; max-width: 820px; }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 28px;
+    }
 
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-28px);
-            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+    .hero-title {
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+      opacity: 0.82;
+    }
 
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 21px);
+      font-weight: 400;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.65;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
 
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(28px);
-            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+    .hero-cta-group { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .hero-event-label { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
 
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
+    /* Logo scroll */
+    .logos-wrap {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 0;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    }
+    .logos-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-logos 80s linear infinite;
+      align-items: center;
+      height: 60px;
+    }
+    @keyframes scroll-logos {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .logo-item {
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-item img {
+      height: clamp(72px, 10vw, 104px);
+      width: auto;
+      filter: brightness(0) invert(1) opacity(0.65);
+    }
+    .logos-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-top: 80px;
+      margin-bottom: 16px;
+    }
 
-        .stagger-children>* {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+    .hero-footer {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      white-space: nowrap;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .hero-footer a {
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      font-size: 12px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .hero-footer a:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; }
 
-        .stagger-children.visible>*:nth-child(1) {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.08s;
-        }
+    .hero-logo {
+      position: absolute;
+      top: 24px;
+      left: 40px;
+      height: 110px;
+      width: auto;
+      filter: invert(1);
+      z-index: 2;
+    }
+    .hero-signin {
+      position: absolute;
+      top: 36px;
+      right: 40px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      z-index: 2;
+      transition: color 0.2s;
+    }
+    .hero-signin:hover { color: #ffffff; }
 
-        .stagger-children.visible>*:nth-child(2) {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.16s;
-        }
-
-        .stagger-children.visible>*:nth-child(3) {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.24s;
-        }
-
-        @keyframes infiniteScroll {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        .scroll-container {
-            display: flex;
-            width: max-content;
-            animation: infiniteScroll 120s linear infinite;
-        }
-
-        @keyframes spin-slow {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .animate-spin-custom {
-            animation: spin-slow 15s linear infinite;
-        }
-
-        @keyframes gear-rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .animate-gear {
-            animation: gear-rotate 12s linear infinite;
-        }
-
-        @keyframes layers-float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-4px);
-            }
-        }
-
-        .animate-layers-1 {
-            animation: layers-float 4s ease-in-out infinite;
-        }
-
-        .animate-layers-2 {
-            animation: layers-float 4s ease-in-out infinite 1s;
-        }
-
-        .animate-layers-3 {
-            animation: layers-float 4s ease-in-out infinite 2s;
-        }
-
-        @keyframes terminal-blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .animate-terminal-cursor {
-            animation: terminal-blink 1s step-end infinite;
-        }
-
-        @keyframes float-topic {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            33% {
-                transform: translateY(-8px) rotate(1deg);
-            }
-
-            66% {
-                transform: translateY(4px) rotate(-1deg);
-            }
-        }
-
-        .topic-circle {
-            animation: float-topic 8s ease-in-out infinite;
-        }
-
-        .glass-pane {
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-        }
-
-        @keyframes pulse-subtle {
-
-            0%,
-            100% {
-                opacity: 0.4;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.8;
-                transform: scale(1.05);
-            }
-        }
-
-        .animate-pulse-subtle {
-            animation: pulse-subtle 4s ease-in-out infinite;
-        }
-
-        @keyframes float-slow {
-
-            0%,
-            100% {
-                transform: translateY(0) translateX(0);
-            }
-
-            33% {
-                transform: translateY(-10px) translateX(5px);
-            }
-
-            66% {
-                transform: translateY(5px) translateX(-8px);
-            }
-        }
-
-        .animate-float-slow {
-            animation: float-slow 10s ease-in-out infinite;
-        }
-
-        @keyframes scrollBounce {
-            0%, 100% { transform: translateY(0); opacity: 0.6; }
-            50% { transform: translateY(5px); opacity: 1; }
-        }
-
-        .cv-auto {
-            content-visibility: auto;
-            contain-intrinsic-size: auto 800px;
-        }
-    </style>
+    /* Mobile */
+    @media (max-width: 768px) {
+      .wrap { padding: 0 20px; }
+      .hero { padding: 100px 20px 60px; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="theme-transition">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
+<!-- HERO -->
+<section class="hero" id="top">
+  <img src="cofi-logo-instagram.png" class="hero-logo" alt="CoFi">
+  <a href="https://members.cofi.so/" class="hero-signin">Sign in</a>
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+  <div class="cloud cloud-1"><div class="cloud-body"></div></div>
+  <div class="cloud cloud-1b"><div class="cloud-body"></div></div>
+  <div class="cloud cloud-2"><div class="cloud-body"></div></div>
+  <div class="cloud cloud-2b"><div class="cloud-body"></div></div>
+  <div class="cloud cloud-3"><div class="cloud-body"></div></div>
+  <div class="cloud cloud-3b"><div class="cloud-body"></div></div>
 
-        const useScrollReveal = (deps = []) => {
-            useEffect(() => {
-                let observer;
-                const timer = setTimeout(() => {
-                    observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add('visible');
-                            }
-                        });
-                    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
-                    const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children');
-                    targets.forEach(el => observer.observe(el));
-                }, 80);
-                return () => {
-                    clearTimeout(timer);
-                    if (observer) observer.disconnect();
-                };
-            }, deps);
-        };
+  <div class="hero-content">
+<span class="hero-eyebrow">Summits & Workshops</span>
+    <h1 class="hero-title">
+      Built<br>
+      <em>for</em><br>
+      AI Product Teams
+    </h1>
+    <p class="hero-sub">Where the people building AI products come together.<br>To learn from each other. To think deeper. To move faster.</p>
+    <div class="hero-cta-group">
+      <a href="https://aipmsummit.com" class="btn-solid">AI PM Summit</a>
+      <span class="hero-event-label">April 22, 2026 · Live Online</span>
+    </div>
 
-        const StarField = ({ isDark }) => {
-            const canvasRef = useRef(null);
-            useEffect(() => {
-                const canvas = canvasRef.current;
-                if (!canvas) return;
-                const ctx = canvas.getContext('2d');
-                let raf, w, h;
+    <p class="logos-label">Trusted by</p>
+    <div class="logos-wrap">
+      <div class="logos-track">
+        <!-- first set -->
+        <div class="logo-item"><img src="images/airbnb-logo.webp" alt="Airbnb"></div>
+        <div class="logo-item"><img src="images/amazon-logo.webp" alt="Amazon"></div>
+        <div class="logo-item"><img src="images/disney-logo.webp" alt="Disney"></div>
+        <div class="logo-item"><img src="images/google-logo.webp" alt="Google"></div>
+        <div class="logo-item"><img src="images/meta-logo.webp" alt="Meta"></div>
+        <div class="logo-item"><img src="images/microsoft-logo.webp" alt="Microsoft"></div>
+        <div class="logo-item"><img src="images/spotify-logo.webp" alt="Spotify"></div>
+        <div class="logo-item"><img src="images/stripe-logo.webp" alt="Stripe"></div>
+        <!-- duplicate for seamless loop -->
+        <div class="logo-item"><img src="images/airbnb-logo.webp" alt="Airbnb"></div>
+        <div class="logo-item"><img src="images/amazon-logo.webp" alt="Amazon"></div>
+        <div class="logo-item"><img src="images/disney-logo.webp" alt="Disney"></div>
+        <div class="logo-item"><img src="images/google-logo.webp" alt="Google"></div>
+        <div class="logo-item"><img src="images/meta-logo.webp" alt="Meta"></div>
+        <div class="logo-item"><img src="images/microsoft-logo.webp" alt="Microsoft"></div>
+        <div class="logo-item"><img src="images/spotify-logo.webp" alt="Spotify"></div>
+        <div class="logo-item"><img src="images/stripe-logo.webp" alt="Stripe"></div>
+      </div>
+    </div>
+  </div>
+  <p class="hero-footer">
+    <span>© 2026 CoFi Labs Inc. · Toronto, Canada</span>
+    <a href="https://form.typeform.com/to/HKG5aUgq">Contact</a>
+  </p>
+</section>
 
-                const resize = () => {
-                    const dpr = window.devicePixelRatio || 1;
-                    const rect = canvas.getBoundingClientRect();
-                    w = rect.width;
-                    h = rect.height;
-                    canvas.width = w * dpr;
-                    canvas.height = h * dpr;
-                    ctx.scale(dpr, dpr);
-                };
+<script>
+  // Shooting stars
+  const hero = document.querySelector('.hero');
+  function spawnShootingStar() {
+    const s = document.createElement('div');
+    s.className = 'shooting-star';
+    s.style.top  = (Math.random() * 55) + '%';
+    s.style.left = (Math.random() * 65) + '%';
+    s.style.setProperty('--dur', (Math.random() * 0.5 + 0.6).toFixed(2) + 's');
+    hero.appendChild(s);
+    s.addEventListener('animationend', () => s.remove());
+    setTimeout(spawnShootingStar, Math.random() * 5000 + 2000);
+  }
+  spawnShootingStar();
 
-                const colors = ['168, 85, 247', '236, 72, 153', '244, 114, 182'];
-                const numStars = 600;
-                const stars = Array.from({ length: numStars }, () => ({
-                    x: Math.random() * 2000 - 1000,
-                    y: Math.random() * 2000 - 1000,
-                    z: Math.random() * 2000,
-                    size: Math.random() * 0.8 + 0.2,
-                    opacity: Math.random() * 0.3 + 0.7,
-                    color: colors[Math.floor(Math.random() * colors.length)]
-                }));
-
-                const animate = () => {
-                    ctx.clearRect(0, 0, w, h);
-                    ctx.globalCompositeOperation = 'lighter';
-                    const cx = w / 2;
-                    const cy = h / 2;
-
-                    stars.forEach(s => {
-                        s.z -= 0.65;
-                        if (s.z <= 1) {
-                            s.z = 2000;
-                            s.x = Math.random() * 2000 - 1000;
-                            s.y = Math.random() * 2000 - 1000;
-                        }
-                        const k = 500 / s.z;
-                        const px = s.x * k + cx;
-                        const py = s.y * k + cy;
-                        if (px >= 0 && px <= w && py >= 0 && py <= h) {
-                            const size = (1 - s.z / 2000) * 2.0 * s.size * k * 0.3;
-                            const opacity = (1 - s.z / 2000) * s.opacity * 1.5;
-                            ctx.beginPath();
-                            ctx.arc(px, py, Math.max(0, size), 0, Math.PI * 2);
-                            ctx.fillStyle = `rgba(${s.color}, ${opacity})`;
-                            ctx.fill();
-                        }
-                    });
-                    raf = requestAnimationFrame(animate);
-                };
-
-                resize();
-                animate();
-                window.addEventListener('resize', resize);
-                return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-            }, [isDark]);
-            return <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, pointerEvents: 'none', opacity: isDark ? 0.9 : 0.6 }} />;
-        };
-
-        const SunIcon = () => (
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
-        );
-
-        const MoonIcon = () => (
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-        );
-
-        const ArrowIcon = () => (
-            <svg className="ml-2 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-        );
-
-        const Button = ({ children, href, onClick, variant = 'primary', className = '', isDark }) => {
-            const baseStyles = "btn-flip px-6 sm:px-10 py-3 sm:py-4 rounded-full font-bold uppercase tracking-wide text-[11px] sm:text-[13px] transition-all duration-300 active:scale-[0.98] inline-block text-center no-underline";
-            const variants = {
-                primary: isDark ? "bg-white text-black hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]" : "bg-indigo-600 text-white hover:bg-indigo-700",
-                secondary: isDark ? "glass-pane text-white hover:bg-white/10" : "bg-stone-100 border border-stone-200 text-stone-900 hover:bg-stone-200"
-            };
-            const Tag = href ? 'a' : 'button';
-            const props = href ? { href } : { onClick };
-            return (
-                <Tag {...props} className={`${baseStyles} ${variants[variant]} ${className}`}>
-                    <span className="btn-label">{children} <ArrowIcon /></span>
-                    <span className="btn-label-hover">{children} <ArrowIcon /></span>
-                </Tag>
-            );
-        };
-
-        const CompanyLogo = ({ name, isDark, className = '' }) => {
-            const filename = `images/${name.toLowerCase()}-logo.webp`;
-            return (
-                <div className={`flex items-center justify-center px-5 sm:px-8 h-full transition-all duration-500`}>
-                    <img
-                        src={filename}
-                        alt={`${name} logo`}
-                        decoding="async"
-                        className={className}
-                        style={{
-                            width: 'auto',
-                            height: 'clamp(64px, 10vw, 112px)',
-                            filter: isDark ? 'brightness(0) invert(1) opacity(0.7)' : 'brightness(0) opacity(0.5)',
-                        }}
-                    />
-                </div>
-            );
-        };
-
-        const ScrollHint = ({ isDark, scrolled }) => (
-            <div
-                style={{
-                    position: 'fixed',
-                    bottom: '2rem',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    zIndex: 40,
-                    opacity: scrolled ? 0 : 1,
-                    transition: 'opacity 0.6s ease',
-                    pointerEvents: 'none',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '6px',
-                }}
-            >
-                <span style={{
-                    fontSize: '9px',
-                    fontWeight: 700,
-                    letterSpacing: '0.25em',
-                    textTransform: 'uppercase',
-                    color: isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.25)',
-                }}>Scroll</span>
-                <svg
-                    width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke={isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.25)'}
-                    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                    style={{ animation: 'scrollBounce 1.8s ease-in-out infinite' }}
-                >
-                    <polyline points="6 9 12 15 18 9" />
-                </svg>
-            </div>
-        );
-
-        const App = () => {
-            const [scrolled, setScrolled] = useState(false);
-            const isDark = false;
-            useScrollReveal([]);
-
-            useEffect(() => {
-                const handleScroll = () => setScrolled(window.scrollY > 50);
-                window.addEventListener('scroll', handleScroll);
-                document.body.style.backgroundColor = '#FDF0E6';
-                document.documentElement.classList.remove('dark');
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
-
-            const handleHomeClick = (e) => {
-                e.preventDefault();
-                window.location.href = window.location.pathname;
-            };
-
-            const companies =['Airbnb', 'Amazon', 'Disney', 'Google', 'Meta', 'Microsoft', 'Spotify', 'Stripe'];
-            const trustLogos = [];
-            for (let i = 0; i < 4; i++) companies.forEach(c => trustLogos.push(c));
-
-            const topics = [
-                { label: 'RAG', color: { dark: 'border-pink-500/50 bg-pink-500/10 text-pink-300 shadow-[0_0_20px_rgba(236,72,153,0.2)]', light: 'border-pink-400 bg-pink-100 text-pink-700 font-semibold' } },
-                { label: 'LLMs', color: { dark: 'border-purple-500/50 bg-purple-500/10 text-purple-300 shadow-[0_0_20px_rgba(168,85,247,0.2)]', light: 'border-purple-400 bg-purple-100 text-purple-700 font-semibold' } },
-                { label: 'Agents', color: { dark: 'border-indigo-500/50 bg-indigo-500/10 text-indigo-300 shadow-[0_0_20px_rgba(99,102,241,0.2)]', light: 'border-indigo-400 bg-indigo-100 text-indigo-700 font-semibold' } },
-                { label: 'Evaluation', color: { dark: 'border-cyan-500/50 bg-cyan-500/10 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.2)]', light: 'border-cyan-500 bg-cyan-100 text-cyan-700 font-semibold' } },
-                { label: 'Latency', color: { dark: 'border-blue-500/50 bg-blue-500/10 text-blue-300 shadow-[0_0_20px_rgba(59,130,246,0.2)]', light: 'border-blue-400 bg-blue-100 text-blue-700 font-semibold' } },
-                { label: 'Multimodal', color: { dark: 'border-rose-500/50 bg-rose-500/10 text-rose-300 shadow-[0_0_20px_rgba(244,114,182,0.2)]', light: 'border-rose-400 bg-rose-100 text-rose-700 font-semibold' } },
-                { label: 'UX Patterns', color: { dark: 'border-violet-500/50 bg-violet-500/10 text-violet-300 shadow-[0_0_20px_rgba(139,92,246,0.2)]', light: 'border-violet-400 bg-violet-100 text-violet-700 font-semibold' } },
-                { label: 'Context', color: { dark: 'border-fuchsia-500/50 bg-fuchsia-500/10 text-fuchsia-300 shadow-[0_0_20px_rgba(217,70,239,0.2)]', light: 'border-fuchsia-400 bg-fuchsia-100 text-fuchsia-700 font-semibold' } },
-                { label: 'Fine-tuning', color: { dark: 'border-sky-500/50 bg-sky-500/10 text-sky-300 shadow-[0_0_20px_rgba(14,165,233,0.2)]', light: 'border-sky-400 bg-sky-100 text-sky-700 font-semibold' } },
-            ];
-
-            return (
-                <div className="viewport-container theme-transition" style={{ background: '#FDF0E6' }}>
-
-                    <nav className={`fixed top-4 left-4 right-4 sm:top-8 sm:left-8 sm:right-8 z-50 px-4 sm:px-8 py-3 flex justify-between items-center rounded-[1.5rem] ${isDark ? 'text-white' : 'text-black'}`} style={{
-                        backdropFilter: scrolled ? 'blur(24px) saturate(160%)' : 'blur(0px)',
-                        background: scrolled ? 'rgba(253,240,230,0.85)' : 'transparent',
-                        border: scrolled ? '1px solid rgba(0,0,0,0.08)' : '1px solid transparent',
-                        transition: 'all 0.5s ease'
-                    }}>
-                        <div className="flex items-center gap-1.5">
-                            <a href="#" onClick={handleHomeClick} className="serif font-bold text-[15px] sm:text-[17px] tracking-tight hover:opacity-70 transition-opacity">CoFi</a>
-                        </div>
-                        <div className="flex gap-4 items-center">
-                            <a
-                                href="https://members.cofi.so"
-                                className="text-[12px] sm:text-[14px] font-medium transition-all duration-200 px-4 py-1.5 rounded-full text-black/70 hover:text-black bg-black/5 hover:bg-black/10"
-                            >
-                                Sign In
-                            </a>
-                        </div>
-                    </nav>
-
-                    <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24 pb-8 sm:pt-28 sm:pb-12 overflow-x-hidden">
-
-                        <div className="relative z-10 flex flex-col items-center w-full max-w-6xl">
-                            <h1 className={`text-[10vw] sm:text-8xl lg:text-[9rem] mb-6 leading-[0.88] sm:leading-[0.82] pb-3 ${isDark ? 'text-white' : 'text-black'}`}>
-                                <span className="serif font-bold block mb-2">The</span>
-                                <span className="serif font-bold block mb-6">community</span>
-                                <span className="serif-italic block font-light py-4 text-[0.65em] opacity-80">for</span>
-                                <span className="gradient-text serif block text-[0.85em] font-bold py-2">AI Product</span>
-                                <span className="gradient-text serif font-bold block text-[0.85em] pb-2">Teams</span>
-                            </h1>
-                            <div className="reveal w-full">
-                                <h2 className={`serif-italic text-xl sm:text-2xl md:text-3xl font-normal max-w-2xl mx-auto leading-[1.4] mb-6 ${isDark ? 'text-indigo-200/80' : 'text-indigo-950/70'}`}>
-                                    CoFi organizes summits and workshops for product teams building with AI, bringing together practitioners from leading companies to share what's actually working.
-                                </h2>
-                                <div className="mb-6">
-                                    <Button isDark={isDark} href="https://aipmsummit.com" className="!px-12 !py-5 !text-[13px] sm:!text-[15px]">AI PM Summit</Button>
-                                    <p className={`text-[12px] mt-3 font-medium ${isDark ? 'text-white/40' : 'text-black/40'}`}>April 22, 2026 · Live Online</p>
-                                </div>
-                                <div className="w-full max-w-xl mx-auto mt-2">
-                                    <div className="relative overflow-hidden" style={{
-                                        maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
-                                        WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)'
-                                    }}>
-                                        <div className="scroll-container flex flex-row flex-nowrap items-center" style={{ height: 'clamp(80px, 12vw, 128px)' }}>
-                                            {trustLogos.map((name, idx) => (
-                                                <CompanyLogo key={idx} name={name} isDark={isDark} />
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="cv-auto relative z-10 px-6 py-20 sm:py-40 overflow-hidden">
-                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-24 items-start">
-                            <div className="md:w-1/2">
-                                <h2 className={`serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-[-0.03em] mb-8 reveal-left ${isDark ? 'text-white' : 'text-black'}`}>
-                                    A home for AI product work.
-                                </h2>
-                            </div>
-                            <div className="md:w-1/2 reveal-right flex flex-col justify-between">
-                                <p className={`text-lg sm:text-xl lg:text-2xl leading-[1.7] font-light ${isDark ? 'text-indigo-100' : 'text-indigo-950'}`}>
-                                    We run summits and workshops where product managers, designers, and engineers hear from leading practitioners, compare notes, and ask the hard questions. Together, in real time.
-                                </p>
-                                <div className="mt-8 sm:mt-12">
-                                    <p className={`serif-italic text-2xl sm:text-3xl lg:text-4xl font-normal leading-[1.4] ${isDark ? 'text-white' : 'text-black'}`}>That's CoFi.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="cv-auto relative z-10 py-16 sm:py-28 overflow-hidden">
-                        <div className="max-w-7xl mx-auto px-6">
-                            <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-20 reveal">
-                                <h2 className={`serif text-3xl sm:text-5xl font-bold tracking-[-0.03em] mb-6 ${isDark ? 'text-white' : 'text-black'}`}>
-                                    Going deep on the <br /><span className="serif-italic font-normal">decisions that matter.</span>
-                                </h2>
-                            </div>
-                            <div className="flex flex-wrap justify-center gap-6 sm:gap-12 stagger-children">
-                                {topics.map((topic, i) => (
-                                    <div key={i} className={`topic-circle w-28 h-28 sm:w-40 sm:h-40 rounded-full border flex items-center justify-center text-center p-4 transition-all duration-700 reveal ${isDark ? topic.color.dark : topic.color.light}`} style={{ animationDelay: `${i * 0.4}s` }}>
-                                        <span className="text-[11px] sm:text-[13px] font-semibold uppercase tracking-widest leading-tight">{topic.label}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-
-                    <section className="cv-auto relative z-10 px-6 py-16 sm:py-36 overflow-hidden">
-                        <div className="max-w-7xl mx-auto">
-                            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-24 gap-8">
-                                <h2 className={`serif text-4xl sm:text-7xl font-bold tracking-[-0.03em] reveal-left ${isDark ? 'text-white' : 'text-black'}`}>For the people<br /><span className="serif-italic font-normal">making the decisions.</span></h2>
-                                <p className={`serif-italic text-lg sm:text-2xl font-normal max-w-md reveal-right ${isDark ? 'text-indigo-300' : 'text-indigo-600'}`}>Where the whole team converges.</p>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 stagger-children">
-                                {[
-                                    {
-                                        title: "Product Managers",
-                                        desc: "Leading AI product strategy and shipping features that redefine user expectations.",
-                                        icon: (
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ overflow: 'visible' }}>
-                                                <circle cx="12" cy="12" r="10" strokeOpacity="0.2" />
-                                                <path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" fill="currentColor" fillOpacity="0.1" className="animate-gear" style={{ transformOrigin: 'center' }} />
-                                                <line x1="12" y1="2" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22" /><line x1="2" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22" y2="12" />
-                                            </svg>
-                                        )
-                                    },
-                                    {
-                                        title: "Designers",
-                                        desc: "Crafting interfaces for AI-powered experiences that remain deeply human-centered.",
-                                        icon: (
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ overflow: 'visible' }}>
-                                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5M12 2l10 5-10 5-10-5 10-5z" fill="currentColor" fillOpacity="0.05" />
-                                                <path d="M12 2l10 5-10 5-10-5 10-5z" className="animate-layers-1" />
-                                                <path d="M2 12l10 5 10-5" className="animate-layers-2" opacity="0.6" />
-                                                <path d="M2 17l10 5 10-5" className="animate-layers-3" opacity="0.3" />
-                                            </svg>
-                                        )
-                                    },
-                                    {
-                                        title: "Engineering Leaders",
-                                        desc: "Building the technical foundations for AI products at companies with serious initiatives underway.",
-                                        icon: (
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ overflow: 'visible' }}>
-                                                <rect x="2" y="3" width="20" height="14" rx="2" strokeOpacity="0.2" />
-                                                <path d="M7 8l3 3-3 3" />
-                                                <line x1="12" y1="14" x2="16" y2="14" className="animate-terminal-cursor" />
-                                                <path d="M2 17h20" opacity="0.2" /><path d="M6 21h12" />
-                                            </svg>
-                                        )
-                                    }
-                                ].map((role, i) => (
-                                    <div key={i} className="py-4">
-                                        <div className={`mb-8 ${isDark ? 'text-indigo-400' : 'text-indigo-500'}`}>{role.icon}</div>
-                                        <h3 className={`serif text-2xl sm:text-3xl font-bold mb-5 ${isDark ? 'text-white' : 'text-black'}`}>{role.title}</h3>
-                                        <p className={`text-[15px] sm:text-[17px] leading-[1.8] font-light ${isDark ? 'text-indigo-100' : 'text-indigo-900'}`}>{role.desc}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-
-                    <section className="relative z-10 px-6 pt-8 pb-20 sm:pt-12 sm:pb-32 flex flex-col items-center justify-center">
-                        <div className="max-w-7xl mx-auto text-center z-20 reveal">
-                            <h2 className={`text-5xl sm:text-8xl lg:text-[9rem] mb-12 leading-[0.88] font-bold tracking-[-0.04em] ${isDark ? 'text-white' : 'text-black'}`}>
-                                <span className="serif block font-light">Join us at the</span>
-                                <span className="gradient-text serif font-bold block">AI PM</span>
-                                <span className="gradient-text serif-italic font-normal block">Summit</span>
-                            </h2>
-                            <p className={`serif-italic text-lg sm:text-2xl font-normal max-w-4xl mx-auto mb-16 px-4 ${isDark ? 'text-indigo-100' : 'text-indigo-950'}`}>
-                                Register for individual or team access.
-                            </p>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-                                <Button isDark={isDark} href="https://aipmsummit.com" className="!px-12 !py-5 !text-[13px] sm:!text-[15px]">AI PM Summit</Button>
-                            </div>
-                        </div>
-                    </section>
-
-                    <footer className="relative z-10 px-6 sm:px-8 py-12 sm:py-16 theme-transition">
-                        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-px ${isDark ? 'bg-gradient-to-r from-transparent via-white/10 to-transparent' : 'bg-gradient-to-r from-transparent via-slate-200/60 to-transparent'}`}></div>
-                        <div className="flex flex-col md:grid md:grid-cols-3 items-center w-full max-w-7xl mx-auto gap-6 md:gap-0">
-                            <div className="md:justify-self-start">
-                                <a href="#" onClick={handleHomeClick} className={`serif font-bold text-[15px] transition-all duration-200 ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-black'}`}>CoFi</a>
-                            </div>
-                            <div className="text-center">
-                                <span className={`text-[13px] font-medium ${isDark ? 'text-white/30' : 'text-black/30'}`}>© 2026 CoFi Labs Inc.</span>
-                                <p className={`text-[11px] mt-1 ${isDark ? 'text-white/20' : 'text-black/20'}`}>2482 Yonge St #1135 · Toronto, ON M4P 2H5 · Canada</p>
-                            </div>
-                            <div className="md:justify-self-end">
-                                <a href="https://form.typeform.com/to/HKG5aUgq" className={`text-[13px] font-medium transition-all duration-200 ${isDark ? 'text-white/30 hover:text-white' : 'text-black/30 hover:text-indigo-600'}`}>Contact</a>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+  const container = document.getElementById('stars');
+  for (let i = 0; i < 180; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2 + 0.5;
+    s.style.cssText = `
+      width: ${size}px; height: ${size}px;
+      top: ${Math.random() * 100}%;
+      left: ${Math.random() * 100}%;
+      --d: ${(Math.random() * 4 + 2).toFixed(1)}s;
+      --delay: -${(Math.random() * 6).toFixed(1)}s;
+      --op-min: ${(Math.random() * 0.2 + 0.05).toFixed(2)};
+      --op-max: ${(Math.random() * 0.5 + 0.5).toFixed(2)};
+    `;
+    container.appendChild(s);
+  }
+</script>
 </body>
-
 </html>
