@@ -191,8 +191,8 @@
     .hero.light-mode .hero-footer { color: rgba(32,2,60,0.4); }
     .hero.light-mode .hero-footer a { color: rgba(32,2,60,0.55); border-color: rgba(32,2,60,0.2); }
     .hero.light-mode .hero-footer a:hover { color: #20023C; border-color: rgba(32,2,60,0.5); }
-    .hero.light-mode .hero-signin { color: rgba(32,2,60,0.7); }
-    .hero.light-mode .hero-signin:hover { color: #20023C; }
+    .hero.light-mode .hero-signin { color: rgba(32,2,60,0.7); border-color: rgba(32,2,60,0.25); }
+    .hero.light-mode .hero-signin:hover { color: #20023C; border-color: rgba(32,2,60,0.6); }
     .hero.light-mode .hero-logo { filter: none; }
     .hero.light-mode .logo-item img { filter: brightness(0) opacity(0.65); }
     .hero.light-mode .logos-label { color: rgba(32,2,60,0.45); }
@@ -418,6 +418,8 @@
 </section>
 
 <script>
+  // Shooting stars disabled
+
   // Moon / light mode toggle
   const moon = document.querySelector('.moon');
   const heroEl = document.querySelector('.hero');
@@ -426,19 +428,6 @@
     heroEl.classList.toggle('light-mode');
   });
 
-  // Shooting stars
-  const hero = document.querySelector('.hero');
-  function spawnShootingStar() {
-    const s = document.createElement('div');
-    s.className = 'shooting-star';
-    s.style.top  = (Math.random() * 55) + '%';
-    s.style.left = (Math.random() * 65) + '%';
-    s.style.setProperty('--dur', (Math.random() * 0.5 + 0.6).toFixed(2) + 's');
-    hero.appendChild(s);
-    s.addEventListener('animationend', () => s.remove());
-    setTimeout(spawnShootingStar, Math.random() * 10000 + 6000);
-  }
-  spawnShootingStar();
 
   const container = document.getElementById('stars');
   for (let i = 0; i < 180; i++) {
