@@ -118,11 +118,19 @@
     }
 
     .nav-logo {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 400;
-      letter-spacing: -0.03em;
-      color: var(--text);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo-img {
+      height: 36px;
+      width: auto;
+      border-radius: 0;
+      filter: brightness(0) opacity(0.92);
+    }
+
+    [data-theme="dark"] .nav-logo-img {
+      filter: brightness(0) invert(1) opacity(0.9);
     }
 
     .nav-actions {
@@ -201,7 +209,7 @@
       font-weight: 400;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: #141413;
       margin-bottom: 28px;
     }
 
@@ -223,7 +231,7 @@
     .hero-sub {
       font-size: clamp(18px, 2.5vw, 22px);
       font-weight: 400;
-      color: var(--text-muted);
+      color: #141413;
       line-height: 1.6;
       max-width: 680px;
       margin: 0 auto 48px;
@@ -349,7 +357,7 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-logo">CoFi</a>
+    <a href="#top" class="nav-logo"><img src="cofi-logo-instagram.png" alt="CoFi" class="nav-logo-img"></a>
     <div class="nav-actions">
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
