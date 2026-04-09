@@ -92,11 +92,28 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .topnav-logo {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
+    .topnav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .topnav-logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    [data-theme="dark"] .topnav-logo-img {
+      filter: brightness(0) invert(1);
+    }
+
+    .topnav-sessions {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 400;
       color: var(--text);
+      letter-spacing: -0.01em;
     }
 
     .hero {
@@ -737,7 +754,10 @@
 
 <nav class="topnav">
   <div class="wrap">
-    <span class="topnav-logo">CoFi Sessions</span>
+    <div class="topnav-brand">
+      <img src="../cofi-logo-instagram.png" alt="CoFi" class="topnav-logo-img">
+      <span class="topnav-sessions">Sessions</span>
+    </div>
   </div>
 </nav>
 
