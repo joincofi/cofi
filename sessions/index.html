@@ -87,37 +87,16 @@
       color: #002727;
     }
 
-    .topnav {
-      padding: 20px 40px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .topnav-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .topnav-logo-img {
-      height: 28px;
-      width: auto;
-      display: block;
-    }
-
-    [data-theme="dark"] .topnav-logo-img {
-      filter: brightness(0) invert(1);
-    }
-
-    .topnav-sessions {
+    .hero-brand {
       font-family: var(--font-serif);
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 400;
-      color: var(--text);
-      letter-spacing: -0.01em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
     }
 
     .hero {
-      padding: 80px 40px 64px;
+      padding: 120px 40px 64px;
       text-align: center;
     }
 
@@ -752,17 +731,9 @@
 </head>
 <body>
 
-<nav class="topnav">
-  <div class="wrap">
-    <div class="topnav-brand">
-      <img src="../cofi-logo-instagram.png" alt="CoFi" class="topnav-logo-img">
-      <span class="topnav-sessions">Sessions</span>
-    </div>
-  </div>
-</nav>
-
 <header class="hero">
   <div class="wrap">
+    <p class="hero-brand">CoFi Sessions</p>
     <h1>Add 100 High-Intent Leads<br><em>to Your Pipeline Every Month.</em></h1>
     <p class="hero-lead">We host a 30-minute virtual talk for your exact target audience. You get an average of 100+ live attendees per talk.</p>
     <a href="https://calendly.com/joincofi/demo" target="_blank" class="btn-solid">Book a 15-Minute Call</a>
