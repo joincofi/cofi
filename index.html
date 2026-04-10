@@ -200,12 +200,11 @@
       padding: 100px 40px 0;
       position: relative;
       box-sizing: border-box;
-      overflow: hidden;
     }
 
     /* ── GLOWING ORBS ── */
     .hero-orb {
-      position: absolute;
+      position: fixed;
       border-radius: 50%;
       filter: blur(120px);
       pointer-events: none;
@@ -280,7 +279,7 @@
 
     /* ── RIBBED GLASS LAYER ── */
     .hero-frost {
-      position: absolute;
+      position: fixed;
       inset: 0;
       z-index: 1;
       pointer-events: none;
@@ -298,7 +297,7 @@
 
     /* ── EDGE FADES ── */
     .hero-fade-top, .hero-fade-bottom {
-      position: absolute;
+      position: fixed;
       left: 0; right: 0;
       height: 120px;
       z-index: 3;
@@ -428,6 +427,8 @@
     .footer {
       padding: 20px 0;
       margin-top: 40px;
+      position: relative;
+      z-index: 4;
     }
 
     .footer::before {
@@ -451,17 +452,18 @@
 
     .footer-copy {
       font-size: 14px;
-      color: var(--text-muted);
+      color: #141413;
     }
 
     .footer-links {
       display: flex;
       gap: 24px;
       font-size: 14px;
-      color: var(--text-muted);
+      color: #141413;
     }
 
-    .footer-links a:hover { color: var(--text); }
+    .footer-links a { color: #141413; }
+    .footer-links a:hover { opacity: 0.6; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
