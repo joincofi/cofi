@@ -228,12 +228,13 @@
     }
 
     .compare-old {
-      background: var(--surface);
+      background: var(--bg);
       border-right: 1px solid var(--border);
     }
 
     .compare-new {
-      background: var(--bg);
+      background: #141413;
+      border-radius: 0 12px 12px 0;
     }
 
     .compare-heading {
@@ -246,7 +247,7 @@
     }
 
     .compare-new .compare-heading {
-      color: var(--text);
+      color: rgba(255, 255, 255, 0.5);
     }
 
     .compare-list {
@@ -261,11 +262,11 @@
       line-height: 1.5;
       padding-left: 20px;
       position: relative;
-      color: var(--text);
+      color: var(--text-muted);
     }
 
-    .compare-old .compare-list li {
-      color: var(--text-muted);
+    .compare-new .compare-list li {
+      color: #ffffff;
     }
 
     .compare-old .compare-list li::before {
@@ -282,7 +283,7 @@
       position: absolute;
       left: 0;
       font-size: 12px;
-      color: var(--text);
+      color: #ffffff;
       top: 1px;
     }
 
@@ -293,6 +294,9 @@
       .compare-old {
         border-right: none;
         border-bottom: 1px solid var(--border);
+      }
+      .compare-new {
+        border-radius: 0 0 12px 12px;
       }
     }
 
