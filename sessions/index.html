@@ -877,7 +877,7 @@
       <div class="how-divider" aria-hidden="true"></div>
       <div class="how-step">
         <span class="how-num">3</span>
-        <p class="how-label">Every signup hits your Slack the moment it happens.</p>
+        <p class="how-label">Every lead flows to your team in real time.</p>
       </div>
     </div>
 
@@ -1015,7 +1015,7 @@
       <div class="roi-results">
         <div class="roi-result-item">
           <p class="roi-result-label">Attendees per session</p>
-          <p class="roi-result-num">100+</p>
+          <p class="roi-result-num">100</p>
         </div>
         <div class="roi-result-divider"></div>
         <div class="roi-result-item">
@@ -1034,7 +1034,7 @@
         </div>
       </div>
 
-      <p class="roi-footnote">Based on 100 attendees per session at $10,000/mo. Your results may vary.</p>
+      <p class="roi-footnote">Based on 100+ attendees per session at $10,000/mo. Your results may vary.</p>
     </div>
   </div>
 </section>
@@ -1049,8 +1049,8 @@
         <p class="pricing-price">$7,500</p>
         <p class="pricing-desc">One talk. Prove the quality of the audience before committing to anything.</p>
         <ul class="pricing-features">
-          <li>~100 live, ICP-matched attendees</li>
-          <li>Custom audience recruitment targeting ~100 net-new registrants.</li>
+          <li>~100+ live, ICP-matched attendees</li>
+          <li>Custom audience recruitment targeting ~100+ net-new registrants.</li>
           <li>We cover 100% of the ad spend and outbound costs.</li>
           <li>Full name, title, company, email</li>
           <li>Slack notifications as registrations come in</li>
@@ -1062,8 +1062,8 @@
         <p class="pricing-price">$10,000<span class="pricing-per">/mo</span></p>
         <p class="pricing-desc">One dedicated talk per month. Consistent pipeline, every month.</p>
         <ul class="pricing-features">
-          <li>~100 live, ICP-matched attendees</li>
-          <li>Custom audience recruitment targeting ~100 net-new registrants.</li>
+          <li>~100+ live, ICP-matched attendees</li>
+          <li>Custom audience recruitment targeting ~100+ net-new registrants.</li>
           <li>We cover 100% of the ad spend and outbound costs.</li>
           <li>Full name, title, company, email</li>
           <li>Slack notifications as registrations come in</li>
@@ -1112,10 +1112,23 @@
 
 <section class="content-section" id="booking" aria-labelledby="calendly-heading">
   <div class="wrap" style="text-align: center;">
-    <h2 id="calendly-heading">Check audience fit and secure your session date.</h2>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/joincofi/audience-fit" style="min-width:320px;height:1200px;margin-top:28px;"></div>
+    <h2 id="calendly-heading">Is CoFi Sessions a fit? Find out in 15 minutes.</h2>
+    <div id="calendly-widget" class="calendly-inline-widget" data-url="https://calendly.com/joincofi/audience-fit?background_color=FAF9F5&hide_event_type_details=1" style="min-width:320px;max-width:500px;width:100%;height:720px;margin:28px auto 0;"></div>
   </div>
 </section>
+<script>
+  window.addEventListener('message', function(e) {
+    var el = document.getElementById('calendly-widget');
+    if (!el || !e.data || !e.data.event) return;
+    if (e.data.event === 'calendly.page_height') {
+      el.style.height = Math.max(720, e.data.payload.height + 20) + 'px';
+    } else if (e.data.event === 'calendly.event_type_viewed') {
+      el.style.height = '720px';
+    } else if (e.data.event.startsWith('calendly.')) {
+      el.style.height = '900px';
+    }
+  });
+</script>
 
 <footer class="footer">
   <div class="wrap footer-inner">
