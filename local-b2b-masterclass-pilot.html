@@ -14,17 +14,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- Calendly: preconnect + early script load so widget is ready before user scrolls -->
-  <link rel="preconnect" href="https://assets.calendly.com" />
-  <link rel="preconnect" href="https://calendly.com" />
-  <link rel="dns-prefetch" href="https://assets.calendly.com" />
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: auto; overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     img { display: block; max-width: 100%; }
 
@@ -234,13 +228,12 @@
     }
 
     .compare-old {
-      background: var(--bg);
+      background: var(--surface);
       border-right: 1px solid var(--border);
     }
 
     .compare-new {
-      background: #141413;
-      border-radius: 0 12px 12px 0;
+      background: var(--bg);
     }
 
     .compare-heading {
@@ -253,7 +246,7 @@
     }
 
     .compare-new .compare-heading {
-      color: rgba(255, 255, 255, 0.5);
+      color: var(--text);
     }
 
     .compare-list {
@@ -268,11 +261,11 @@
       line-height: 1.5;
       padding-left: 20px;
       position: relative;
-      color: var(--text-muted);
+      color: var(--text);
     }
 
-    .compare-new .compare-list li {
-      color: #ffffff;
+    .compare-old .compare-list li {
+      color: var(--text-muted);
     }
 
     .compare-old .compare-list li::before {
@@ -289,7 +282,7 @@
       position: absolute;
       left: 0;
       font-size: 12px;
-      color: #ffffff;
+      color: var(--text);
       top: 1px;
     }
 
@@ -300,9 +293,6 @@
       .compare-old {
         border-right: none;
         border-bottom: 1px solid var(--border);
-      }
-      .compare-new {
-        border-radius: 0 0 12px 12px;
       }
     }
 
@@ -862,7 +852,8 @@
     <p class="hero-brand">CoFi Sessions</p>
     <h1>Add 100 High-Intent Leads<br><em>to Your Pipeline Every Month.</em></h1>
     <p class="hero-lead">We host a 30-minute virtual talk for your exact target audience. You get 100+ live attendees per talk.</p>
-    <a href="#booking" class="btn-solid">Book a 15-Minute Call</a>
+    <a href="https://calendly.com/joincofi/demo" target="_blank" class="btn-solid">Book a 15-Minute Call</a>
+    <p class="hero-guarantee">Not satisfied with the leads? Full refund, no questions asked.</p>
 
     <div class="how-steps">
       <div class="how-step">
@@ -872,12 +863,12 @@
       <div class="how-divider" aria-hidden="true"></div>
       <div class="how-step">
         <span class="how-num">2</span>
-        <p class="how-label">We fill the room with 100+ ICP-matched professionals.</p>
+        <p class="how-label">We fill the room with 100+ ICP-matched professionals</p>
       </div>
       <div class="how-divider" aria-hidden="true"></div>
       <div class="how-step">
         <span class="how-num">3</span>
-        <p class="how-label">Every signup hits your Slack the moment it happens.</p>
+        <p class="how-label">Every signup hits your Slack the moment it happens</p>
       </div>
     </div>
 
@@ -885,22 +876,22 @@
       <p class="trusted-label">Attendees from</p>
       <div class="logos-marquee">
         <div class="logos-track">
-          <div class="logo-item"><img src="../images/airbnb-logo.webp" alt="Airbnb"></div>
-          <div class="logo-item"><img src="../images/amazon-logo.webp" alt="Amazon"></div>
-          <div class="logo-item"><img src="../images/disney-logo.webp" alt="Disney"></div>
-          <div class="logo-item"><img src="../images/google-logo.webp" alt="Google"></div>
-          <div class="logo-item"><img src="../images/meta-logo.webp" alt="Meta"></div>
-          <div class="logo-item"><img src="../images/microsoft-logo.webp" alt="Microsoft"></div>
-          <div class="logo-item"><img src="../images/spotify-logo.webp" alt="Spotify"></div>
-          <div class="logo-item"><img src="../images/stripe-logo.webp" alt="Stripe"></div>
-          <div class="logo-item"><img src="../images/airbnb-logo.webp" alt="Airbnb"></div>
-          <div class="logo-item"><img src="../images/amazon-logo.webp" alt="Amazon"></div>
-          <div class="logo-item"><img src="../images/disney-logo.webp" alt="Disney"></div>
-          <div class="logo-item"><img src="../images/google-logo.webp" alt="Google"></div>
-          <div class="logo-item"><img src="../images/meta-logo.webp" alt="Meta"></div>
-          <div class="logo-item"><img src="../images/microsoft-logo.webp" alt="Microsoft"></div>
-          <div class="logo-item"><img src="../images/spotify-logo.webp" alt="Spotify"></div>
-          <div class="logo-item"><img src="../images/stripe-logo.webp" alt="Stripe"></div>
+          <div class="logo-item"><img src="images/airbnb-logo.webp" alt="Airbnb"></div>
+          <div class="logo-item"><img src="images/amazon-logo.webp" alt="Amazon"></div>
+          <div class="logo-item"><img src="images/disney-logo.webp" alt="Disney"></div>
+          <div class="logo-item"><img src="images/google-logo.webp" alt="Google"></div>
+          <div class="logo-item"><img src="images/meta-logo.webp" alt="Meta"></div>
+          <div class="logo-item"><img src="images/microsoft-logo.webp" alt="Microsoft"></div>
+          <div class="logo-item"><img src="images/spotify-logo.webp" alt="Spotify"></div>
+          <div class="logo-item"><img src="images/stripe-logo.webp" alt="Stripe"></div>
+          <div class="logo-item"><img src="images/airbnb-logo.webp" alt="Airbnb"></div>
+          <div class="logo-item"><img src="images/amazon-logo.webp" alt="Amazon"></div>
+          <div class="logo-item"><img src="images/disney-logo.webp" alt="Disney"></div>
+          <div class="logo-item"><img src="images/google-logo.webp" alt="Google"></div>
+          <div class="logo-item"><img src="images/meta-logo.webp" alt="Meta"></div>
+          <div class="logo-item"><img src="images/microsoft-logo.webp" alt="Microsoft"></div>
+          <div class="logo-item"><img src="images/spotify-logo.webp" alt="Spotify"></div>
+          <div class="logo-item"><img src="images/stripe-logo.webp" alt="Stripe"></div>
         </div>
       </div>
     </div>
@@ -1050,11 +1041,10 @@
         <p class="pricing-desc">One talk. Prove the quality of the audience before committing to anything.</p>
         <ul class="pricing-features">
           <li>~100 live, ICP-matched attendees</li>
-          <li>Custom audience recruitment targeting ~100 net-new registrants.</li>
-          <li>We cover 100% of the ad spend and outbound costs.</li>
           <li>Full name, title, company, email</li>
           <li>Slack notifications as registrations come in</li>
           <li>Full CSV of attendees after the talk</li>
+          <li>Full refund if you're not satisfied</li>
         </ul>
       </div>
       <div class="pricing-card pricing-card-featured">
@@ -1063,13 +1053,11 @@
         <p class="pricing-desc">One dedicated talk per month. Consistent pipeline, every month.</p>
         <ul class="pricing-features">
           <li>~100 live, ICP-matched attendees</li>
-          <li>Custom audience recruitment targeting ~100 net-new registrants.</li>
-          <li>We cover 100% of the ad spend and outbound costs.</li>
           <li>Full name, title, company, email</li>
           <li>Slack notifications as registrations come in</li>
           <li>Full CSV of attendees after the talk</li>
           <li>Priority scheduling on our calendar</li>
-          <li>Month-to-month agreement. Pause or cancel anytime before your next billing cycle</li>
+          <li>Cancel anytime</li>
         </ul>
       </div>
     </div>
@@ -1113,7 +1101,7 @@
 <section class="content-section" id="booking" aria-labelledby="calendly-heading">
   <div class="wrap" style="text-align: center;">
     <h2 id="calendly-heading">Check audience fit and secure your session date.</h2>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/joincofi/audience-fit" style="min-width:320px;height:1200px;margin-top:28px;"></div>
+    <a href="https://calendly.com/joincofi/demo" target="_blank" class="btn-solid" style="margin-top: 28px; font-size: 17px; padding: 16px 32px;">Book a 15-Minute Call</a>
   </div>
 </section>
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+async function run() {
+  await document.fonts.ready;
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+
+  const SIZE = 500;
+  const DPR = window.devicePixelRatio || 2;
+
+  // Physical pixel size = SIZE * DPR for crispness
+  canvas.width  = SIZE * DPR;
+  canvas.height = SIZE * DPR;
+  canvas.style.width  = SIZE + 'px';
+  canvas.style.height = SIZE + 'px';
+  ctx.scale(DPR, DPR);
+
+  // Transparent background
+  ctx.clearRect(0, 0, SIZE, SIZE);
+
+  // Draw "CoFi" wordmark centered
+  ctx.fillStyle = '#1A0800';
+  ctx.font = "bold 120px 'Playfair Display'";
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('CoFi', SIZE / 2, SIZE / 2);
+
+  window.__logoDataURL = canvas.toDataURL('image/png');
+  document.title = 'done';
+}
+run();
+</script>
+</body>
+</html>
