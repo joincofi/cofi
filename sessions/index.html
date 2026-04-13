@@ -551,6 +551,40 @@
       margin-bottom: 16px;
     }
 
+    .theme-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .theme-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .theme-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .theme-detail-item {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .theme-detail-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
     .dfy-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -1023,8 +1057,8 @@
 <header class="hero">
   <div class="wrap">
     <p class="hero-brand">CoFi Sessions</p>
-    <h1>100 Verified leads.<br>Zero production work.</h1>
-    <p class="hero-lead">We host the sessions, find the industry speakers, and run the ads. You just claim a sponsorship slot and get 100 verified ICP leads synced to your CRM.</p>
+    <h1>100 Verified Leads.<br>Zero Production Work.</h1>
+    <p class="hero-lead">We produce high-level Executive Briefings on the <strong>2026 AI &amp; GTM Roadmap</strong>. We handle the speakers and the ads; you just claim the leads and the CRM sync.</p>
     <a href="#booking" class="btn-solid">Book a 15-minute call</a>
 
     <div class="trusted">
@@ -1053,6 +1087,53 @@
   </div>
 </header>
 
+
+<section class="content-section" aria-labelledby="themes-heading">
+  <div class="wrap">
+    <h2 id="themes-heading">Next month's briefing themes</h2>
+    <div class="three-col" style="margin-top: 32px;">
+      <div class="theme-card">
+        <h3>The AI-Revenue Displacement Briefing</h3>
+        <div class="theme-detail">
+          <div class="theme-detail-item">
+            <p class="theme-detail-label">Focus</p>
+            <p>How Agentic AI is changing the B2B sales cycle.</p>
+          </div>
+          <div class="theme-detail-item">
+            <p class="theme-detail-label">Audience</p>
+            <p>VPs of Sales, CROs, CMOs</p>
+          </div>
+        </div>
+      </div>
+      <div class="theme-card">
+        <h3>The 2026 Cyber-Physical Security Roadmap</h3>
+        <div class="theme-detail">
+          <div class="theme-detail-item">
+            <p class="theme-detail-label">Focus</p>
+            <p>Protecting infrastructure in an automated threat landscape.</p>
+          </div>
+          <div class="theme-detail-item">
+            <p class="theme-detail-label">Audience</p>
+            <p>CISOs, VPs of IT, Infrastructure Leads</p>
+          </div>
+        </div>
+      </div>
+      <div class="theme-card">
+        <h3>The Lean-Growth GTM Session</h3>
+        <div class="theme-detail">
+          <div class="theme-detail-item">
+            <p class="theme-detail-label">Focus</p>
+            <p>High-efficiency acquisition strategies for Series B+ firms.</p>
+          </div>
+          <div class="theme-detail-item">
+            <p class="theme-detail-label">Audience</p>
+            <p>VPs of Marketing, Directors of Growth</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="content-section" aria-labelledby="problem-heading">
   <div class="wrap">
