@@ -314,14 +314,16 @@
     }
 
     .pill {
-      display: inline-block;
-      padding: 10px 18px;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 14px;
+      display: block;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
       font-weight: 400;
       color: var(--text);
-      background: var(--surface);
+    }
+
+    .pill:first-child {
+      border-top: 1px solid var(--border);
     }
 
     .flow-diagram {
