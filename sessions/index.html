@@ -426,12 +426,52 @@
       }
     }
 
+    .two-col {
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 720px) {
+      .two-col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .step-num {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
     .dfy-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 24px;
       text-align: left;
+    }
+
+    .dfy-card-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .dfy-card-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--text);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .dfy-card h3 {
@@ -583,10 +623,17 @@
       opacity: 0.85;
     }
 
+    .cpl-row-4 {
+      grid-template-columns: 1.4fr 1fr 1fr 2fr;
+    }
+
     @media (max-width: 600px) {
       .pricing-grid { grid-template-columns: 1fr; }
       .cpl-row { grid-template-columns: 1fr 1fr; }
       .cpl-row span:last-child { display: none; }
+      .cpl-row-4 { grid-template-columns: 1fr 1fr; }
+      .cpl-row-4 span:nth-child(3),
+      .cpl-row-4 span:nth-child(4) { display: none; }
     }
 
     .pilot-list {
@@ -860,26 +907,9 @@
 <header class="hero">
   <div class="wrap">
     <p class="hero-brand">CoFi Sessions</p>
-    <h1>Add 100 High-Intent Leads<br><em>to Your Pipeline Every Month.</em></h1>
-    <p class="hero-lead">We host a 30-minute virtual talk for your exact target audience. You get 100+ live attendees per talk.</p>
-    <a href="#booking" class="btn-solid">Book a 15-Minute Call</a>
-
-    <div class="how-steps">
-      <div class="how-step">
-        <span class="how-num">1</span>
-        <p class="how-label">You provide a speaker and we handle everything else.</p>
-      </div>
-      <div class="how-divider" aria-hidden="true"></div>
-      <div class="how-step">
-        <span class="how-num">2</span>
-        <p class="how-label">We fill the room with 100+ ICP-matched professionals.</p>
-      </div>
-      <div class="how-divider" aria-hidden="true"></div>
-      <div class="how-step">
-        <span class="how-num">3</span>
-        <p class="how-label">Every lead flows to your team in real time.</p>
-      </div>
-    </div>
+    <h1>Sponsor content your buyers are already searching for.</h1>
+    <p class="hero-lead">On-demand professional development sessions with industry leaders, built for your exact buyers. Every registrant lands in your pipeline.</p>
+    <a href="#booking" class="btn-solid">Book a 15-minute call</a>
 
     <div class="trusted">
       <p class="trusted-label">Attendees from</p>
@@ -909,90 +939,116 @@
 
 <section class="content-section" aria-labelledby="problem-heading">
   <div class="wrap">
-    <h2 id="problem-heading">The old way vs. the CoFi way</h2>
+    <h2 id="problem-heading">There's a better way to reach your buyers</h2>
     <div class="compare-table">
       <div class="compare-col compare-old">
-        <p class="compare-heading">The old webinar</p>
+        <p class="compare-heading">The old way</p>
         <ul class="compare-list">
-          <li>Weeks of internal prep work</li>
-          <li>You build the audience from scratch</li>
-          <li>Burn your email list to promote it</li>
-          <li>Chase sales to share the invite</li>
-          <li>15 people show up live</li>
+          <li>You spend 40 hours building a webinar.</li>
+          <li>You find a speaker and manage them.</li>
+          <li>You build the audience yourself.</li>
+          <li>You end up with a list you have to qualify.</li>
         </ul>
       </div>
       <div class="compare-col compare-new">
         <p class="compare-heading">The CoFi way</p>
         <ul class="compare-list">
-          <li>You provide a speaker. We do the rest.</li>
-          <li>We tap into our existing network, run outbound, and place ads</li>
-          <li>Zero strain on your email list</li>
-          <li>No internal promotion needed</li>
-          <li>100+ live professionals, on average</li>
+          <li>Zero prep.</li>
+          <li>We source the industry leaders.</li>
+          <li>We bring the audience.</li>
+          <li>100 ready-to-contact leads.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="content-section" aria-labelledby="audience-heading">
+<section class="content-section" aria-labelledby="network-heading">
   <div class="wrap">
-    <h2 id="audience-heading">Who do you want in the room?</h2>
-    <p class="prose" style="margin-top: 12px; max-width: 680px;">We tailor every talk to your exact ICP. Some examples of the audiences we work with:</p>
-    <div class="audience-pills">
-      <span class="pill">Marketing &amp; Growth</span>
-      <span class="pill">Sales &amp; RevOps</span>
-      <span class="pill">Product Management</span>
-      <span class="pill">HR &amp; People Ops</span>
-      <span class="pill">Customer Success</span>
-      <span class="pill">Finance &amp; FP&amp;A</span>
-      <span class="pill">E-Commerce Ops</span>
-      <span class="pill">IT &amp; Systems</span>
+    <h2 id="network-heading">How it works</h2>
+    <div class="three-col" style="margin-top: 32px;">
+      <div class="dfy-card">
+        <div class="dfy-card-icon">
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <h3><span class="step-num">1.</span> The session</h3>
+        <p>We produce professional development sessions with industry leaders on topics your buyers actually care about.</p>
+      </div>
+      <div class="dfy-card">
+        <div class="dfy-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3><span class="step-num">2.</span> The match</h3>
+        <p>We find and drive your exact buyers to each session, filtered by job title, company size, and industry.</p>
+      </div>
+      <div class="dfy-card">
+        <div class="dfy-card-icon">
+          <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+        </div>
+        <h3><span class="step-num">3.</span> The sync</h3>
+        <p>Every registrant's data flows directly to your Slack or CRM in real-time. You get the lead. We handle everything else.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="content-section" aria-labelledby="dfy-heading">
+<section class="content-section" aria-labelledby="vertical-heading">
   <div class="wrap">
-    <h2 id="dfy-heading">How it works</h2>
-    <p class="prose" style="margin-top: 12px;">You focus on the talk. We handle everything else.</p>
-    <div class="flow-diagram">
+    <h2 id="vertical-heading">Active session networks</h2>
+    <p class="prose" style="margin-top: 12px; max-width: 680px;">We run live networks across five verticals. Tell us where your buyers sit and we'll handle everything from there.</p>
+    <div class="audience-pills" style="margin-top: 28px;">
+      <span class="pill">Go-To-Market &middot; CMOs, VPs of Sales, RevOps</span>
+      <span class="pill">IT &amp; Security &middot; CIOs, CISOs, Infrastructure Leads</span>
+      <span class="pill">Human Resources &middot; CHROs, People Ops, Talent Acquisition</span>
+      <span class="pill">Finance &amp; Ops &middot; CFOs, Controllers, Finance Directors</span>
+      <span class="pill">Engineering &amp; Product &middot; CTOs, VPs of Product, Data Scientists</span>
+    </div>
+  </div>
+</section>
 
-      <div class="flow-node flow-node-you">
-        <p class="flow-tag flow-tag-you">You</p>
-        <p class="flow-title">Provide a speaker</p>
-        <p class="flow-body">An internal expert from your team for a 30-minute talk: 20 mins of insights, 10 mins Q&amp;A.</p>
+
+<section class="content-section" aria-labelledby="channel-heading">
+  <div class="wrap wrap-wide">
+    <h2 id="channel-heading">How CoFi compares</h2>
+    <div class="cpl-table" style="margin-top: 32px;">
+      <div class="cpl-row cpl-header cpl-row-4">
+        <span>Channel</span>
+        <span>Cost Per Lead</span>
+        <span>Internal Effort</span>
+        <span>The reality</span>
       </div>
-
-      <div class="flow-arrow">→</div>
-
-      <div class="flow-node flow-node-us">
-        <p class="flow-tag flow-tag-us">CoFi Sessions</p>
-        <p class="flow-title">Handle everything else</p>
-        <ul class="flow-list">
-          <li>Registration pages</li>
-          <li>Calendar invites</li>
-          <li>Audience recruitment</li>
-          <li>Live moderation</li>
-        </ul>
+      <div class="cpl-row cpl-row-4">
+        <span>LinkedIn Ads</span>
+        <span>$150 - $300</span>
+        <span>High</span>
+        <span class="cpl-quality">Requires a dedicated manager + $5k/mo in creative assets.</span>
       </div>
-
-      <div class="flow-arrow">→</div>
-
-      <div class="flow-node flow-node-you">
-        <p class="flow-tag flow-tag-you">You</p>
-        <p class="flow-title">Collect the pipeline</p>
-        <p class="flow-body">100+ live, ICP-matched attendees. Every signup hits your Slack the moment it happens. Full CSV delivered after the talk.</p>
+      <div class="cpl-row cpl-row-4">
+        <span>Outbound SDRs</span>
+        <span>$250 - $500</span>
+        <span>Extreme</span>
+        <span class="cpl-quality">Management overhead + high turnover + "Spam" risk.</span>
       </div>
-
+      <div class="cpl-row cpl-row-4">
+        <span>Generic Webinars</span>
+        <span>$200+</span>
+        <span>High</span>
+        <span class="cpl-quality">40+ hours of prep for a one-time event with 15 attendees.</span>
+      </div>
+      <div class="cpl-row cpl-highlight cpl-row-4">
+        <span>CoFi Sessions</span>
+        <span>$100</span>
+        <span>Zero</span>
+        <span class="cpl-quality cpl-high">Guaranteed volume. No production. No ad management.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="content-section" aria-labelledby="roi-heading">
   <div class="wrap">
-    <h2 id="roi-heading">What's the return?</h2>
-    <p class="prose" style="margin-top: 12px; max-width: 640px;">Adjust the sliders to match your business. See what one session could mean for your pipeline.</p>
+    <h2 id="roi-heading">The ROI math</h2>
+    <p class="prose" style="margin-top: 12px; max-width: 640px;">Based on 100 registrants per session at $10,000/mo. Adjust the sliders to match your business.</p>
 
     <div class="roi-card">
       <div class="roi-sliders">
@@ -1014,7 +1070,7 @@
 
       <div class="roi-results">
         <div class="roi-result-item">
-          <p class="roi-result-label">Attendees per session</p>
+          <p class="roi-result-label">Registrants per session</p>
           <p class="roi-result-num">100</p>
         </div>
         <div class="roi-result-divider"></div>
@@ -1034,77 +1090,34 @@
         </div>
       </div>
 
-      <p class="roi-footnote">Based on 100+ attendees per session at $10,000/mo. Your results may vary.</p>
+      <p class="roi-footnote">Based on 100+ registrants per session at $10,000/mo. Your results may vary.</p>
     </div>
   </div>
 </section>
 
 <section class="content-section" aria-labelledby="pilot-heading">
   <div class="wrap">
-    <h2 id="pilot-heading">Simple, two-step pricing.</h2>
-    <p class="prose" style="margin-top: 12px;">Start with a pilot to prove it works. Then lock in a monthly slot to build predictable pipeline.</p>
+    <h2 id="pilot-heading">Pricing</h2>
     <div class="pricing-grid">
       <div class="pricing-card">
-        <p class="pricing-label">Pilot</p>
+        <p class="pricing-label">The pilot</p>
         <p class="pricing-price">$7,500</p>
-        <p class="pricing-desc">One talk. Prove the quality of the audience before committing to anything.</p>
+        <p class="pricing-desc">One session. See the quality for yourself before committing to anything.</p>
         <ul class="pricing-features">
-          <li>~100+ live, ICP-matched attendees</li>
-          <li>Custom audience recruitment targeting ~100+ net-new registrants.</li>
-          <li>We cover 100% of the ad spend and outbound costs.</li>
-          <li>Full name, title, company, email</li>
-          <li>Slack notifications as registrations come in</li>
-          <li>Full CSV of attendees after the talk</li>
+          <li>100 guaranteed registrants</li>
+          <li>Real-time Slack notifications</li>
+          <li>Full CRM integration</li>
         </ul>
       </div>
       <div class="pricing-card pricing-card-featured">
-        <p class="pricing-label">Monthly</p>
+        <p class="pricing-label">The growth retainer</p>
         <p class="pricing-price">$10,000<span class="pricing-per">/mo</span></p>
-        <p class="pricing-desc">One dedicated talk per month. Consistent pipeline, every month.</p>
+        <p class="pricing-desc">One session per month. Consistent leads, every month.</p>
         <ul class="pricing-features">
-          <li>~100+ live, ICP-matched attendees</li>
-          <li>Custom audience recruitment targeting ~100+ net-new registrants.</li>
-          <li>We cover 100% of the ad spend and outbound costs.</li>
-          <li>Full name, title, company, email</li>
-          <li>Slack notifications as registrations come in</li>
-          <li>Full CSV of attendees after the talk</li>
-          <li>Priority scheduling on our calendar</li>
-          <li>Month-to-month agreement. Pause or cancel anytime before your next billing cycle</li>
+          <li>100 guaranteed registrants per session</li>
+          <li>Ongoing audience optimization</li>
+          <li>Month-to-month. Cancel anytime.</li>
         </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="content-section" aria-labelledby="cpl-heading">
-  <div class="wrap">
-    <h2 id="cpl-heading">How does CoFi Sessions compare?</h2>
-    <p class="prose" style="margin-top: 12px; max-width: 680px;">Here's how our cost per lead stacks up against other B2B channels.</p>
-    <div class="cpl-table">
-      <div class="cpl-row cpl-header">
-        <span>Channel</span>
-        <span>Avg. Cost Per Lead</span>
-        <span>Lead Quality</span>
-      </div>
-      <div class="cpl-row">
-        <span>LinkedIn Ads</span>
-        <span>$150 to $300</span>
-        <span class="cpl-quality cpl-mid">Form fill, cold</span>
-      </div>
-      <div class="cpl-row">
-        <span>Google Ads</span>
-        <span>$100 to $250</span>
-        <span class="cpl-quality cpl-mid">Intent-based, cold</span>
-      </div>
-      <div class="cpl-row">
-        <span>Outbound SDR</span>
-        <span>$200 to $500</span>
-        <span class="cpl-quality cpl-mid">High effort, variable quality</span>
-      </div>
-      <div class="cpl-row cpl-highlight">
-        <span>CoFi Sessions</span>
-        <span>~$100</span>
-        <span class="cpl-quality cpl-high">Live attendee, ICP-matched, high intent</span>
       </div>
     </div>
   </div>
@@ -1112,7 +1125,8 @@
 
 <section class="content-section" id="booking" aria-labelledby="calendly-heading">
   <div class="wrap" style="text-align: center;">
-    <h2 id="calendly-heading">Is CoFi Sessions a fit? Find out in 15 minutes.</h2>
+    <h2 id="calendly-heading">Ready to get started?</h2>
+    <p class="prose" style="margin-top: 12px; max-width: 640px; margin-left: auto; margin-right: auto;">Book a 15-minute call. We'll find out if your vertical is available and walk you through how it works.</p>
     <div id="calendly-widget" class="calendly-inline-widget" data-url="https://calendly.com/joincofi/audience-fit?background_color=FAF9F5&hide_event_type_details=1" style="min-width:320px;max-width:500px;width:100%;height:720px;margin:28px auto 0;"></div>
   </div>
 </section>
