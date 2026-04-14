@@ -1347,7 +1347,6 @@
       el.style.height = Math.max(720, e.data.payload.height + 40) + 'px';
     } else if (e.data.event === 'calendly.date_and_time_selected') {
       el.style.height = '1100px';
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else if (e.data.event === 'calendly.event_type_viewed') {
       el.style.height = '720px';
     }
