@@ -74,6 +74,56 @@
       line-height: 1.15;
     }
 
+    .nav {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      z-index: 1000;
+      background: transparent;
+    }
+
+    .nav-inner {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo-img {
+      height: 80px;
+      width: auto;
+      filter: brightness(0) opacity(0.92);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-outline {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text);
+      background: transparent;
+      transition: opacity 0.2s;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover { opacity: 0.7; }
+
     .btn-solid {
       font-size: 14px;
       font-weight: 600;
@@ -103,7 +153,7 @@
     }
 
     .hero {
-      padding: 120px 40px 64px;
+      padding: 60px 40px 64px;
       text-align: left;
       position: relative;
       overflow: hidden;
@@ -1182,6 +1232,16 @@
   </style>
 </head>
 <body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo"><img src="../cofi-logo-instagram.png" alt="CoFi" class="nav-logo-img"></a>
+    <div class="nav-actions">
+      <a href="https://members.cofi.so/" class="btn-outline">Sign in</a>
+      <a href="https://aipmsummit.com" class="btn-solid">AI PM Summit →</a>
+    </div>
+  </div>
+</nav>
 
 <header class="hero">
   <div class="wrap">
