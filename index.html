@@ -117,14 +117,11 @@
     }
 
     .wwd-section .wwd-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .wwd-section .wwd-grid {
-        grid-template-columns: 1fr;
-      }
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-eyebrow {
@@ -466,19 +463,13 @@
 
 <!-- WHAT WE DO -->
 <section class="wwd-section">
-  <p class="wwd-label">What we offer</p>
+  <p class="wwd-label">Up next</p>
   <div class="wwd-grid">
 
     <div class="wwd-card">
       <h2 class="wwd-card-title">The Design Summit</h2>
       <p class="wwd-card-desc">Live summits where senior designers go deep on what they're actually building with AI. Quarterly, online, recordings included.</p>
       <a href="https://thedesignsummit.com" class="wwd-card-link">See upcoming →</a>
-    </div>
-
-    <div class="wwd-card">
-      <h2 class="wwd-card-title">CoFi Membership</h2>
-      <p class="wwd-card-desc">A private community of designers in the AI era. Live events, recordings library, member-only Q&amp;As, and a Slack with people doing the work.</p>
-      <a href="https://members.cofi.so/" class="wwd-card-link">Become a member →</a>
     </div>
 
   </div>
