@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoFi Labs</title>
+  <title>CoFi · The community for designers in the AI era</title>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -38,9 +38,10 @@
     :root {
       --bg: #FDFAF6;
       --surface: #FFFFFF;
-      --text: #000000;
+      --text: #1A1815;
       --text-muted: #6B6560;
-      --border: rgba(26, 24, 22, 0.1);
+      --accent: #A5443A;
+      --border: rgba(26, 24, 22, 0.12);
       --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
       --font-serif: "Playfair Display", Georgia, serif;
     }
@@ -117,11 +118,13 @@
 
     .wwd-section .wwd-grid {
       grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
-    .wwd-section .wwd-card + .wwd-card {
-      border-top: none;
-      border-left: 6px solid var(--text);
+    @media (max-width: 768px) {
+      .wwd-section .wwd-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .hero-eyebrow {
@@ -144,6 +147,11 @@
       text-wrap: balance;
       font-variant-ligatures: none;
       font-feature-settings: "liga" 0, "dlig" 0;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
     }
 
     .hero-sub {
@@ -170,36 +178,44 @@
     }
     .btn-strategy:hover { opacity: 0.85; }
 
+    .hero-event-date {
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+
     /* WHAT WE DO */
     .wwd-label {
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 0;
-      text-transform: none;
-      color: var(--text);
-      margin-bottom: 20px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
       text-align: center;
     }
 
     .wwd-grid {
       display: grid;
       grid-template-columns: 1fr;
-      border: 30px solid var(--text);
-      border-radius: 50px;
-      overflow: hidden;
+      gap: 20px;
       text-align: left;
     }
 
     .wwd-card {
-      padding: 52px 48px;
-      background: var(--bg);
+      padding: 44px 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
+      transition: border-color 0.2s, transform 0.2s;
     }
 
-    .wwd-card + .wwd-card {
-      border-top: 6px solid var(--text);
+    .wwd-card:hover {
+      border-color: var(--accent);
     }
 
     .wwd-card-title {
@@ -207,28 +223,26 @@
       font-size: 36px;
       font-weight: 400;
       letter-spacing: -0.02em;
-      color: #000000;
+      color: var(--text);
+      line-height: 1.1;
     }
 
     .wwd-card-desc {
-      font-size: 17px;
+      font-size: 16px;
       color: var(--text);
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
     .wwd-card-link {
       font-size: 13px;
-      letter-spacing: 0.04em;
-      color: var(--text);
-      border: 1.5px solid var(--text);
-      border-radius: 100px;
-      padding: 8px 20px;
+      letter-spacing: 0.02em;
+      color: var(--accent);
       width: fit-content;
       margin-top: auto;
       display: inline-block;
-      transition: background 0.2s, color 0.2s;
+      transition: opacity 0.2s;
     }
-    .wwd-card-link:hover { background: var(--text); color: var(--bg); }
+    .wwd-card-link:hover { opacity: 0.6; }
 
     .archive-list {
       display: flex;
@@ -249,23 +263,53 @@
       padding-top: 0;
     }
 
+    .archive-section {
+      margin-top: 40px;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .archive-item-card {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 24px 28px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .archive-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .archive-item-title {
-      font-size: 14px;
-      font-weight: 500;
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
       color: #000000;
     }
 
     .archive-item-desc {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text);
+      line-height: 1.5;
     }
 
     .archive-item-link {
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      color: var(--text);
-      margin-top: 4px;
-      transition: color 0.2s;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+      margin-top: 8px;
+      transition: opacity 0.2s;
     }
     .archive-item-link:hover { opacity: 0.6; }
 
@@ -389,11 +433,13 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <h1 class="hero-title">Focus on your message. We'll fill the room.</h1>
-    <p class="hero-sub">CoFi Labs builds the infrastructure, technology, and audiences that power B2B digital experiences. From AI summits to predictable webinar pipelines, we handle the complexity so you can focus on what matters: your message.</p>
-    <a href="https://aeromatic.ai" class="btn-strategy">Meet Aeromatic</a>
+    <p class="hero-eyebrow">A community for designers</p>
+    <h1 class="hero-title">For designers building <em>the AI era.</em></h1>
+    <p class="hero-sub">Live summits, deep-dives, and a private community of senior designers and design leaders shaping the next era of products.</p>
+    <a href="https://thedesignsummit.com" class="btn-strategy">Attend The Design Summit</a>
+    <p class="hero-event-date">June 24, 2026 · Live Online</p>
     <div class="logos">
-      <p class="logos-label">Trusted by</p>
+      <p class="logos-label">Designers and operators from</p>
       <div class="logos-marquee">
         <div class="logos-track">
           <div class="logo-item"><img src="images/airbnb-logo.webp" alt="Airbnb"></div>
@@ -420,32 +466,37 @@
 
 <!-- WHAT WE DO -->
 <section class="wwd-section">
-  <p class="wwd-label">What we do</p>
+  <p class="wwd-label">What we offer</p>
   <div class="wwd-grid">
 
     <div class="wwd-card">
-      <h2 class="wwd-card-title">Aeromatic</h2>
-      <p class="wwd-card-desc">Precision targeting meets personal outreach. We find the right people and fill the seats.</p>
-      <a href="https://aeromatic.ai" class="wwd-card-link">Visit Aeromatic →</a>
+      <h2 class="wwd-card-title">The Design Summit</h2>
+      <p class="wwd-card-desc">Live summits where senior designers go deep on what they're actually building with AI. Quarterly, online, recordings included.</p>
+      <a href="https://thedesignsummit.com" class="wwd-card-link">See upcoming →</a>
     </div>
 
     <div class="wwd-card">
-      <h2 class="wwd-card-title">The Summit Archives</h2>
-      <p class="wwd-card-desc">Complete video libraries from our 2026 summits.</p>
-      <div class="archive-list">
-        <div class="archive-item">
-          <span class="archive-item-title">AI UX Summit</span>
-          <span class="archive-item-desc">How to design AI-powered user experiences.</span>
-          <a href="https://aiuxsummit.com" class="archive-item-link">Access Recordings →</a>
-        </div>
-        <div class="archive-item">
-          <span class="archive-item-title">AI PM Summit</span>
-          <span class="archive-item-desc">The playbook for AI product leaders.</span>
-          <a href="https://aipmsummit.com" class="archive-item-link">Access Recordings →</a>
-        </div>
-      </div>
+      <h2 class="wwd-card-title">CoFi Membership</h2>
+      <p class="wwd-card-desc">A private community of designers in the AI era. Live events, recordings library, member-only Q&amp;As, and a Slack with people doing the work.</p>
+      <a href="https://members.cofi.so/" class="wwd-card-link">Become a member →</a>
     </div>
 
+  </div>
+
+  <div class="archive-section">
+    <p class="wwd-label" style="margin-top: 80px;">Past summits</p>
+    <div class="archive-grid">
+      <div class="archive-item-card">
+        <span class="archive-item-title">AI UX Summit</span>
+        <span class="archive-item-desc">How to design AI-powered user experiences.</span>
+        <a href="https://aiuxsummit.com" class="archive-item-link">Access recordings →</a>
+      </div>
+      <div class="archive-item-card">
+        <span class="archive-item-title">AI PM Summit</span>
+        <span class="archive-item-desc">The playbook for AI product leaders.</span>
+        <a href="https://aipmsummit.com" class="archive-item-link">Access recordings →</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -454,7 +505,9 @@
   <div class="footer-inner">
     <p class="footer-copy">© 2026 CoFi Labs Inc. Toronto, Canada</p>
     <div class="footer-links">
-<a href="https://members.cofi.so/">Sign in</a>
+      <a href="https://thedesignsummit.com">The Design Summit</a>
+      <a href="https://members.cofi.so/">Sign in</a>
+      <a href="https://aeromatic.ai">For B2B teams</a>
       <a href="https://form.typeform.com/to/HKG5aUgq">Contact</a>
       <a href="/privacy">Privacy</a>
     </div>
