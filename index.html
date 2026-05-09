@@ -346,13 +346,79 @@
     }
 
     .newsletter-form {
+      display: flex;
+      gap: 8px;
       width: 100%;
-      max-width: 520px;
+      max-width: 480px;
       margin: 0 auto;
+    }
+
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 14px 22px;
+      font-size: 15px;
+      font-family: var(--font);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-form input[type="email"]:focus {
+      border-color: var(--accent);
+    }
+
+    .newsletter-form input[type="email"]::placeholder {
+      color: var(--text-muted);
+    }
+
+    .newsletter-form button {
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 100px;
+      padding: 14px 28px;
+      font-size: 14px;
+      font-family: var(--font);
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover {
+      opacity: 0.85;
+    }
+
+    .newsletter-success {
+      display: none;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      background: rgba(204, 120, 92, 0.08);
+      border: 1px solid var(--accent);
+      border-radius: 100px;
+      color: var(--text);
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .newsletter-success.active {
+      display: block;
+    }
+
+    .newsletter-form.hidden {
+      display: none;
     }
 
     @media (max-width: 600px) {
       .newsletter-section { padding: 60px 24px 40px; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form input[type="email"], .newsletter-form button {
+        width: 100%;
+      }
     }
 
     /* LOGOS */
@@ -542,11 +608,30 @@
     <p class="wwd-label" style="text-align: center;">The newsletter</p>
     <h2 class="newsletter-title">A weekly note <em>from the room.</em></h2>
     <p class="newsletter-sub">What I'm hearing from senior designers, AI startups, and the rooms where the future of design is being decided. Every Wednesday.</p>
-    <div class="newsletter-form">
-      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="8b01f34b-001f-4b77-9c72-891df17ea887"></script>
+    <form class="newsletter-form" id="cofi-newsletter-form" action="https://cofi.beehiiv.com/subscribe" method="get" target="_blank">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="newsletter-success" id="cofi-newsletter-success">
+      Confirm your subscription in the tab that just opened. See you Wednesday.
     </div>
   </div>
 </section>
+
+<script>
+  (function() {
+    var form = document.getElementById('cofi-newsletter-form');
+    var success = document.getElementById('cofi-newsletter-success');
+    if (form) {
+      form.addEventListener('submit', function() {
+        setTimeout(function() {
+          form.classList.add('hidden');
+          success.classList.add('active');
+        }, 200);
+      });
+    }
+  })();
+</script>
 
 <!-- FOOTER -->
 <footer class="footer">
