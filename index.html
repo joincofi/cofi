@@ -40,7 +40,7 @@
       --surface: #FFFFFF;
       --text: #1A1815;
       --text-muted: #6B6560;
-      --accent: #A5443A;
+      --accent: #CC785C;
       --border: rgba(26, 24, 22, 0.12);
       --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
       --font-serif: "Playfair Display", Georgia, serif;
@@ -310,6 +310,51 @@
     }
     .archive-item-link:hover { opacity: 0.6; }
 
+    /* NEWSLETTER */
+    .newsletter-section {
+      padding: 100px 40px 60px;
+    }
+
+    .newsletter-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-title {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 16px 0 16px;
+      text-wrap: balance;
+    }
+
+    .newsletter-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .newsletter-sub {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 40px;
+      text-wrap: balance;
+    }
+
+    .newsletter-form {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .newsletter-section { padding: 60px 24px 40px; }
+    }
+
     /* LOGOS */
     .logos {
       display: flex;
@@ -487,6 +532,18 @@
         <span class="archive-item-desc">The playbook for AI product leaders.</span>
         <a href="https://aipmsummit.com" class="archive-item-link">Access recordings →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <p class="wwd-label" style="text-align: center;">The newsletter</p>
+    <h2 class="newsletter-title">A weekly note <em>from the room.</em></h2>
+    <p class="newsletter-sub">What I'm hearing from senior designers, AI startups, and the rooms where the future of design is being decided. Every Wednesday.</p>
+    <div class="newsletter-form">
+      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="26ae8f14-f96e-43c3-8f92-517528ef4c69"></script>
     </div>
   </div>
 </section>
